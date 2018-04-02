@@ -1,0 +1,125 @@
+<?php
+	error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+	require_once "../config/koneksi.php";
+
+	if (isset($_POST['simpan'])) {
+		$posisi = mysqli_real_escape_string($db, trim(strtoupper($_POST['posisi'])));
+		// $refrensi = mysqli_real_escape_string($db, trim($_POST['refrensi']));
+		$refrensi = strtoupper($_POST['refrensi']);
+		$nama_lengkap = mysqli_real_escape_string($db, trim(strtoupper($_POST['nama_lengkap'])));
+		$warga_negara = mysqli_real_escape_string($db, trim(strtoupper($_POST['warga_negara'])));
+		$tempat_lahir = mysqli_real_escape_string($db, trim(strtoupper($_POST['tempat_lahir'])));
+		
+		// $tanggal = $_POST['tanggal_lahir'];
+		// $tgl = explode('-',$tanggal);
+		// $tanggal_lahir = $tgl[2]."-".$tgl[1]."-".$tgl[0];
+		$tanggal_lahir = strtoupper($_POST['tanggal_lahir']);
+		
+		$agama = strtoupper($_POST['agama']);
+		$jenis_kelamin = strtoupper($_POST['jenis_kelamin']);
+		$no_ktp = strtoupper($_POST['no_ktp']);
+		$no_sim = strtoupper($_POST['no_sim']);
+		$status_sipil = strtoupper($_POST['status_sipil']);
+		$alamat_email = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_email'])));
+		$alamat_sekarang = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_sekarang'])));
+		$alamat_domisili = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_domisili'])));
+		$no_handphone = strtoupper($_POST['no_handphone']);
+		$telepon = strtoupper($_POST['telepon']);
+		$pendidikan_terakhir = strtoupper($_POST['pendidikan_terakhir']);
+		$kemampuan_komputer  = mysqli_real_escape_string($db, trim(strtoupper($_POST['kemampuan_komputer'])));
+		$bahasa_asing = strtoupper($_POST['bahasa_asing']);
+		$riwayat_penyakit = mysqli_real_escape_string($db, trim(strtoupper($_POST['riwayat_penyakit'])));
+		$pengalaman_kerja = mysqli_real_escape_string($db, trim(strtoupper($_POST['pengalaman_kerja'])));
+		$lama_pengalaman = strtoupper($_POST['lama_pengalaman']);
+		$foto = mysqli_real_escape_string($db, trim($_POST['foto']));
+		$ktp = mysqli_real_escape_string($db, trim($_POST['ktp']));
+		$ijazah = mysqli_real_escape_string($db, trim($_POST['ijazah']));
+
+		$fileinfo=PATHINFO($_FILES["foto"]["name"]);
+		$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
+		move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
+		$location="../upload/" . $newFilename;
+
+		$fileinfo2=PATHINFO($_FILES["ktp"]["name"]);
+		$newFilename2=$fileinfo2['filename'] ."_". time() . "." . $fileinfo2['extension'];
+		move_uploaded_file($_FILES["ktp"]["tmp_name"],"../upload/" . $newFilename2);
+		$location2="../upload/" . $newFilename2;
+
+		$fileinfo3=PATHINFO($_FILES["ijazah"]["name"]);
+		$newFilename3=$fileinfo3['filename'] ."_". time() . "." . $fileinfo3['extension'];
+		move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);
+		$location3="../upload/" . $newFilename3;
+
+		
+		// $jadwal = $_POST['jadwal_interview'];
+		// $jdl = explode('-',$tanggal);
+		// $jadwal_interview = $jdl[2]."-".$jdl[1]."-".$jdl[0]; 
+		$jadwal_interview = strtoupper($_POST['jadwal_interview']);
+
+		$query = mysqli_query($db, "INSERT INTO recruitment(posisi,
+															refrensi,
+															nama_lengkap,
+															warga_negara,
+															tempat_lahir,
+															tanggal_lahir,
+															agama,
+															jenis_kelamin,
+															no_ktp,
+															no_sim,
+															status_sipil,
+															alamat_email,
+															alamat_sekarang,
+															alamat_domisili,
+															no_handphone,
+															telepon,
+															pendidikan_terakhir,
+															kemampuan_komputer,
+															bahasa_asing,
+															riwayat_penyakit,
+															pengalaman_kerja,
+															lama_pengalaman,
+															foto,
+															ktp,
+															ijazah,
+															jadwal_interview,
+															post_date)
+															VALUES('$posisi',
+																	'$refrensi',
+																	'$nama_lengkap',
+																	'$warga_negara',
+																	'$tempat_lahir',
+																	'$tanggal_lahir',
+																	'$agama',
+																	'$jenis_kelamin',
+																	'$no_ktp',
+																	'$no_sim',
+																	'$status_sipil',
+																	'$alamat_email',
+																	'$alamat_sekarang',
+																	'$alamat_domisili',
+																	'$no_handphone',
+																	'$telepon',
+																	'$pendidikan_terakhir',
+																	'$kemampuan_komputer',
+																	'$bahasa_asing',
+																	'$riwayat_penyakit',
+																	'$pengalaman_kerja',
+																	'$lama_pengalaman',
+																	'$location',
+																	'$location2',
+																	'$location3',
+																	'$jadwal_interview',
+																	 NOW())");
+		if ($query) {
+			// jika berhasil tampilkan pesan berhasil insert data
+			// header('location: index.php?alert=2');
+			// echo "berhasil";
+			header('location: ../index.php?alert=2');
+		} else {
+			// jika gagal tampilkan pesan kesalahan
+			// header('location: index.php?alert=1');
+			// echo "gagal";
+			header('location: ../index.php?alert=1');
+		}	
+	}
+?>

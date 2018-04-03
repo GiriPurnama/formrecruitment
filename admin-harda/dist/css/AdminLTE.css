@@ -5039,3 +5039,10 @@ img.img-logo {
     margin-bottom: 20px;
     font-size: 20px;
 }
+a .btn.btn-warning i{
+  padding-left: 5px;
+}
+.btn-export-excel{
+  position: relative;
+  top: 30px;
+}

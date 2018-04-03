@@ -40,8 +40,8 @@
             <!-- /.box-header -->
 
             <div class="box-body table-responsive no-padding">
-              <a href="export-excel.php" target="_BLANK">
-                <button class="btn btn-warning btn-submit">Export Excel</button>
+              <a class="btn-export-excel" href="export-excel.php" target="_BLANK">
+                <button class="btn btn-warning btn-submit">Export Excel<i class="far fa-file-excel"></i></button>
               </a>
               <table class="table table-bordered table-hover" id="table-user">
               <thead>

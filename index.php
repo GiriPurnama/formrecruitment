@@ -210,6 +210,27 @@
 			</div>
 		</div>
 	</div>
+
+	<footer class="footer">
+		<div class="col-md-6">
+			<p class="address-footer left">	
+				<strong>Copyright &copy; 2018 <a href="http://www.pthardaesaraksa.com" target="_BLANK">PT Harda Esa Raksa</a>.</strong> All rights
+			</p>
+			<div class="text-left">
+                <a href=""><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href=""><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href=""><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href=""><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<p class="address-footer right"> ILP Building 3rd Floor Suite 15 Pasar
+			Minggu Raya No. 39a Pancoran,</p>
+			<p class="address-footer right">
+			South Jakarta 12780 
+			</p>
+		</div>
+	</footer>
 </body>
 </html>
 <script language="javascript">

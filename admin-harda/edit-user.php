@@ -84,7 +84,7 @@
               <div class="col-md-12 mg-bottom">
                 <?php
                   $startdate = $jadwal_interview;
-                  $expire = strtotime('+1  days');
+                  $expire = strtotime($startdate.'+1 days');  
             
                   if ($status_pelamar == "interview") {
                         echo '<span class="label label-warning">Interview</span>';

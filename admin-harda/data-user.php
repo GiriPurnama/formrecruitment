@@ -70,7 +70,7 @@
                     $jadwal_interview = $row['jadwal_interview'];
 
                     $startdate = $jadwal_interview;
-                    $expire = strtotime('+1 days');                              
+                    $expire = strtotime($startdate.'+1 days');                              
                 ?>
                 <tr>
                   <td><?php echo $row['posisi']; ?></td>

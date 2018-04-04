@@ -17,7 +17,7 @@
         <li class="header">Navigasi</li>
         <li class="">
           <a href="dashboard.php">
-            <i class="fa fa-dashboard"></i><span>Dashboard</span>
+            <i class="fa fas fa-tachometer-alt"></i><span>Dashboard</span>
             <span class="pull-right-container">
               <!-- <i class="fa fa-angle-left pull-right"></i> -->
             </span>

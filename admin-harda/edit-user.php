@@ -82,16 +82,18 @@
                   </div>
               </div>
               <div class="col-md-12 mg-bottom">
-                <?php 
+                <?php
+                  $startdate = $status_pelamar;
+                  $expire = strtotime($startdate.' + 2 days');
+                  $today = strtotime("today midnight");
+
                   if ($status_pelamar == "interview") {
-                      echo '<span class="label label-warning">Sudah Interview</span>';
-                  } elseif ($status_pelamar == "lolos-seleksi") {
-                      echo '<span class="label label-success">Lolos Seleksi</span>';
-                  } elseif ($status_pelamar == "gagal-seleksi") {
-                      echo '<span class="label label-danger">Gagal Seleksi</span>';
-                  } else {
-                      echo '<span class="label label-info">Belum Interview</span>';
-                  }
+                        echo '<span class="label label-warning">Interview</span>';
+                    } elseif ($today >= $expire && $status_pelamar == ""){
+                        echo '<span class="label label-danger">Tidak Interview</span>';
+                    } else {
+                        echo '<span class="label label-info">Belum Interview</span>';
+                    }
                 ?>
               </div>
               <div class="col-md-6 pad-label">
@@ -221,8 +223,10 @@
                       <select class="form-control" name="status_pelamar">
                         <option value="">-</option>
                         <option value="interview">Interview</option>
-                        <option value="lolos-seleksi">Lolos Seleksi</option>
-                        <option value="gagal-seleksi">Gagal Seleksi</option>
+                       <!--  
+                          <option value="lolos-seleksi">Lolos Seleksi</option>
+                          <option value="gagal-seleksi">Gagal Seleksi</option> 
+                        -->
                       </select>
                     </div>
                 <div class="form-group col-md-12">

@@ -292,7 +292,9 @@
 		});
 
     	$("#tanggal_lahir").datepicker();
-    	$("#jadwal_interview").datepicker();
+    	$("#jadwal_interview").datepicker({
+    		format: 'yyyy-mm-dd'
+    	});
 
     	$(".danger-text").hide();
 

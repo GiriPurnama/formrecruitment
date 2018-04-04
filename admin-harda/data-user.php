@@ -66,7 +66,17 @@
                     // $hitungDulu = mysqli_num_rows($pelamar);
                     while ($row = mysqli_fetch_assoc($pelamar)) {
 
-                    $status_pelamar = $row['status_pelamar'];                                          
+                    $status_pelamar = $row['status_pelamar'];
+
+                    $startdate = $status_pelamar;
+                    $expire = strtotime($startdate.' + 2 days');
+                    $today = strtotime("today midnight");
+
+                    // if($today >= $expire){
+                    //     echo "expired";
+                    // } else {
+                    //     echo "active";
+                    // }                                          
                 ?>
                 <tr>
                   <td><?php echo $row['posisi']; ?></td>
@@ -82,11 +92,9 @@
                   <td>
                       <?php 
                         if ($status_pelamar == "interview") {
-                            echo '<span class="label label-warning">Sudah Interview</span>';
-                        } elseif ($status_pelamar == "lolos-seleksi") {
-                            echo '<span class="label label-success">Lolos Seleksi</span>';
-                        } elseif ($status_pelamar == "gagal-seleksi") {
-                            echo '<span class="label label-danger">Gagal Seleksi</span>';
+                            echo '<span class="label label-warning">Interview</span>';
+                        } elseif ($today >= $expire && $status_pelamar == ""){
+                            echo '<span class="label label-danger">Tidak Interview</span>';
                         } else {
                             echo '<span class="label label-info">Belum Interview</span>';
                         }

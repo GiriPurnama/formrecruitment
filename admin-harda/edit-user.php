@@ -83,13 +83,12 @@
               </div>
               <div class="col-md-12 mg-bottom">
                 <?php
-                  $startdate = $status_pelamar;
-                  $expire = strtotime($startdate.' + 2 days');
-                  $today = strtotime("today midnight");
-
+                  $startdate = $jadwal_interview;
+                  $expire = strtotime('+1  days');
+            
                   if ($status_pelamar == "interview") {
                         echo '<span class="label label-warning">Interview</span>';
-                    } elseif ($today >= $expire && $status_pelamar == ""){
+                    } elseif ($startdate >= $expire && $status_pelamar == ""){
                         echo '<span class="label label-danger">Tidak Interview</span>';
                     } else {
                         echo '<span class="label label-info">Belum Interview</span>';

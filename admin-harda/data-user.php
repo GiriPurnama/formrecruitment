@@ -67,16 +67,10 @@
                     while ($row = mysqli_fetch_assoc($pelamar)) {
 
                     $status_pelamar = $row['status_pelamar'];
+                    $jadwal_interview = $row['jadwal_interview'];
 
-                    $startdate = $status_pelamar;
-                    $expire = strtotime($startdate.' + 2 days');
-                    $today = strtotime("today midnight");
-
-                    // if($today >= $expire){
-                    //     echo "expired";
-                    // } else {
-                    //     echo "active";
-                    // }                                          
+                    $startdate = $jadwal_interview;
+                    $expire = strtotime('+1 days');                              
                 ?>
                 <tr>
                   <td><?php echo $row['posisi']; ?></td>
@@ -93,7 +87,7 @@
                       <?php 
                         if ($status_pelamar == "interview") {
                             echo '<span class="label label-warning">Interview</span>';
-                        } elseif ($today >= $expire && $status_pelamar == ""){
+                        } elseif ($startdate >= $expire && $status_pelamar == ""){
                             echo '<span class="label label-danger">Tidak Interview</span>';
                         } else {
                             echo '<span class="label label-info">Belum Interview</span>';

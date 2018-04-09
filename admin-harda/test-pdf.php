@@ -38,16 +38,22 @@
       }
 
 	$content = '
-	<page>
-		<style>
-			.mag-top{
-				margin-top:50px;
-				margin-left:50px;
-			}
-			.wid{
-				width:100%;
-			}
-		</style>
+	<style>
+		.mag-top{
+			margin-top:50px;
+			margin-left:50px;
+		}
+		.wid{
+			width:100%;
+		}
+		.img{
+			margin-top: 0px;
+			margin-left: 0px;
+        	background-image: url("img/hera-black.png");
+ 		}
+	</style>
+	<page backimg="img/hera-black.png">
+		<div >
 			<div class="img-logo">
 				<img width="500" height="120" src="../image/logoPng_harda.png">
 			</div>
@@ -180,6 +186,7 @@
 		    		Telephone: (021) 7988154  Fax: (021) 79170718  Email: info@pthardaesaraksa.com 
 		    	</p>
 		    </div>
+		</div>
 	</page>';
 
 	require_once('plugins/html2pdf/html2pdf.class.php');

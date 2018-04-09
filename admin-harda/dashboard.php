@@ -22,7 +22,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="dashboard.php"><i class="fa fas fa-tachometer-alt"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -31,7 +31,7 @@
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <?php  
               $pendaftar_baru = mysqli_query($db, "SELECT * FROM recruitment WHERE status_pelamar = ''");
@@ -49,27 +49,7 @@
             <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <?php  
-            $pendaftar_masuk = mysqli_query($db, "SELECT * FROM recruitment WHERE status_pelamar = 'lolos-seleksi'");
-            $jum_masuk = mysqli_num_rows($pendaftar_masuk);
-          ?>
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3><?php echo $jum_masuk ?></h3>
-
-              <p>Jumlah Pelamar Lolos</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-checkmark-circled"></i>
-            </div>
-            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <?php  
             $pendaftar_interview = mysqli_query($db, "SELECT * FROM recruitment WHERE status_pelamar = 'interview'");
@@ -88,17 +68,19 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
-          <?php  
-            $pendaftar_ditolak = mysqli_query($db, "SELECT * FROM recruitment WHERE status_pelamar = 'gagal-seleksi'");
+          <?php
+            // $startdate = $jadwal_interview;
+            $expire = strtotime('+1 days');  
+            $pendaftar_ditolak = mysqli_query($db, "SELECT * FROM recruitment WHERE status_pelamar = 'tidak interview'");
             $jum_ditolak = mysqli_num_rows($pendaftar_ditolak);
           ?>
           <div class="small-box bg-red">
             <div class="inner">
               <h3><?php echo $jum_ditolak ?></h3>
 
-              <p>Jumlah Pelamar Ditolak</p>
+              <p>Jumlah Tidak Interview</p>
             </div>
             <div class="icon">
               <i class="ion ion-alert-circled"></i>

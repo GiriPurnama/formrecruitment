@@ -69,8 +69,8 @@
                     $status_pelamar = $row['status_pelamar'];
                     $jadwal_interview = $row['jadwal_interview'];
 
-                    $startdate = $jadwal_interview;
-                    $expire = strtotime($startdate.'+1 days');                              
+                    $startdate = date($jadwal_interview);
+                    $expire = strtotime($startdate. '+1 days');                              
                 ?>
                 <tr>
                   <td><?php echo $row['posisi']; ?></td>
@@ -87,7 +87,7 @@
                       <?php 
                         if ($status_pelamar == "interview") {
                             echo '<span class="label label-warning">Interview</span>';
-                        } elseif ($startdate >= $expire && $status_pelamar == ""){
+                        } elseif ($status_pelamar == "tidak interview"){
                             echo '<span class="label label-danger">Tidak Interview</span>';
                         } else {
                             echo '<span class="label label-info">Belum Interview</span>';

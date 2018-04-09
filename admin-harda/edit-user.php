@@ -88,7 +88,7 @@
             
                   if ($status_pelamar == "interview") {
                         echo '<span class="label label-warning">Interview</span>';
-                    } elseif ($startdate >= $expire && $status_pelamar == ""){
+                    } elseif ($status_pelamar == "tidak interview"){
                         echo '<span class="label label-danger">Tidak Interview</span>';
                     } else {
                         echo '<span class="label label-info">Belum Interview</span>';
@@ -222,6 +222,7 @@
                       <select class="form-control" name="status_pelamar">
                         <option value="">-</option>
                         <option value="interview">Interview</option>
+                        <option value="tidak interview">Tidak Interview</option>
                        <!--  
                           <option value="lolos-seleksi">Lolos Seleksi</option>
                           <option value="gagal-seleksi">Gagal Seleksi</option> 

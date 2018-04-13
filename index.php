@@ -198,9 +198,13 @@
 							<label for="ijazah">Upload Ijazah* :</label>
     						<input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah" required>
 						</div>
-						<div class="form-group col-md-6">
+						<!-- <div class="form-group col-md-6">
 							<label for="jadwal_interview">Jadwal Interview* :</label>
     						<input type="text" class="form-control" id="jadwal_interview" name="jadwal_interview" required>
+						</div> -->
+						<div class="form-group col-md-6">
+							<label for="kemampuan">Promosikan Diri Anda* :</label>
+    						<input type="text" class="form-control" id="promosiDiri" name="promosi_diri" required>
 						</div>
 						<div class="form-group col-md-12">
 							<input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Kirim">
@@ -383,13 +387,20 @@
 	        }else{
 	        	$("input[name='pengalaman_kerja']").removeClass('error-field');
 	        }
-
-	        if($("input[name='jadwal_interview']").val()===""){
-	        	$("input[name='jadwal_interview']").addClass("error-field");
+	        if($("#promosiDiri").val()===""){
+	        	$("#promosiDiri").addClass("error-field");
 	            status = false;
 	        }else{
-	        	$("input[name='jadwal_interview']").removeClass('error-field');
+	        	$("#promosiDiri").removeClass('error-field');
 	        }
+
+
+	        // if($("input[name='jadwal_interview']").val()===""){
+	        // 	$("input[name='jadwal_interview']").addClass("error-field");
+	        //     status = false;
+	        // }else{
+	        // 	$("input[name='jadwal_interview']").removeClass('error-field');
+	        // }
 
 	        var ddl = document.getElementById("refrensi");
  			var selectedValue = ddl.options[ddl.selectedIndex].value;

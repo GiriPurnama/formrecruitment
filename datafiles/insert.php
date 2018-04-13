@@ -34,6 +34,7 @@
 		$foto = mysqli_real_escape_string($db, trim($_POST['foto']));
 		$ktp = mysqli_real_escape_string($db, trim($_POST['ktp']));
 		$ijazah = mysqli_real_escape_string($db, trim($_POST['ijazah']));
+		$promosi_diri = mysqli_real_escape_string($db, trim(strtoupper($_POST['promosi_diri'])));
 
 		$fileinfo=PATHINFO($_FILES["foto"]["name"]);
 		$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
@@ -82,6 +83,7 @@
 															ktp,
 															ijazah,
 															jadwal_interview,
+															promosi_diri,
 															post_date)
 															VALUES('$posisi',
 																	'$refrensi',
@@ -109,6 +111,7 @@
 																	'$location2',
 																	'$location3',
 																	'$jadwal_interview',
+																	'$promosi_diri',
 																	 NOW())");
 		if ($query) {
 			// jika berhasil tampilkan pesan berhasil insert data

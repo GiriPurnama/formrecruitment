@@ -48,6 +48,7 @@
           $post_date = $data['post_date'];
           $komentar = $data['komentar'];
           $status_pelamar = $data['status_pelamar'];
+          $posisi_rekomendasi = $data['posisi_rekomendasi'];
         }
       }
   ?>
@@ -229,6 +230,10 @@
                         -->
                       </select>
                     </div>
+                    <div class="col-md-6 form-group mg20">
+                      <label>Rekomendasi</label>
+                      <input type="text" class="form-control" name="posisi_rekomendasi" value="<?php echo $posisi_rekomendasi; ?>">
+                    </div>
                 <div class="form-group col-md-12">
                   <input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Simpan">
                   <input type="submit" class="btn btn-warning btn-submit" name="export-pdf" id="pdf" value="Export PDF" href="javascript:void(0);" onclick="window.open('export-pdf.php?id=<?php echo $id; ?>')">
@@ -288,10 +293,12 @@ if (isset($_POST['simpan'])) {
     $id             = $_POST['id'];
     $komentar       = $_POST['komentar'];
     $status_pelamar = $_POST['status_pelamar'];
+    $posisi_rekomendasi = $_POST['posisi_rekomendasi'];
 
     // perintah query untuk mengubah data pada tabel is_siswa
     $query = mysqli_query($db, "UPDATE recruitment SET komentar = '$komentar',
-                            status_pelamar  = '$status_pelamar'
+                            status_pelamar  = '$status_pelamar',
+                            posisi_rekomendasi = '$posisi_rekomendasi'
                             WHERE id        = '$id'");   
 
     // cek query

@@ -2,6 +2,17 @@
 	error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 	require_once "../config/koneksi.php";
 
+
+	function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+	{
+	    $pieces = [];
+	    $max = mb_strlen($keyspace, '8bit') - 1;
+	    for ($i = 0; $i < $length; ++$i) {
+	        $pieces []= $keyspace[random_int(0, $max)];
+	    }
+	    return implode('', $pieces);
+	}
+
 	if (isset($_POST['simpan'])) {
 		$posisi = mysqli_real_escape_string($db, trim(strtoupper($_POST['posisi'])));
 		// $refrensi = mysqli_real_escape_string($db, trim($_POST['refrensi']));
@@ -53,6 +64,10 @@
 		move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);
 		$location3="../upload/" . $newFilename3;
 
+		// $length = 3;
+		// $token = base64_encode(random_bytes($length));
+		$sortName = substr($refrensi,0,2);
+		$token = $sortName."-".random_str(3);
 		
 		// $jadwal_interview = strtoupper($_POST['jadwal_interview']);
 
@@ -84,6 +99,7 @@
 															promosi_diri,
 															tinggi_badan,
 															berat_badan,
+															token,
 															post_date)
 															VALUES('$posisi',
 																	'$refrensi',
@@ -113,6 +129,7 @@
 																	'$promosi_diri',
 																	'$tinggi_badan',
 																	'$berat_badan',
+																	'$token',
 																	 NOW())");
 		if ($query) {
 			// jika berhasil tampilkan pesan berhasil insert data

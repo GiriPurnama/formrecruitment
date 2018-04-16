@@ -18,7 +18,7 @@ include "../config/koneksi.php";
           $status_sipil = $data['status_sipil'];
           $alamat_email = $data['alamat_email'];
           $alamat_sekarang = $data['alamat_sekarang'];
-          $alamat_domisili = $data['alamat_domisili'];
+          // $alamat_domisili = $data['alamat_domisili'];
           $no_handphone = $data['no_handphone'];
           $telepon     = $data['telepon'];
           $pendidikan_terakhir = $data['pendidikan_terakhir'];
@@ -109,11 +109,6 @@ $html = '
 	    		<td style="width:50%";>'.$alamat_sekarang.'</td>
 	    	</tr>
 	    	<tr>
-	    		<td style="width:50%";>Alamat Domisili</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$alamat_domisili.'</td>
-	    	</tr>
-	    	<tr>
 	    		<td style="width:50%";>No Handphone</td>
 	    		<td style="width:20%";>:</td>
 	    		<td style="width:50%";>'.$no_handphone.'</td>
@@ -189,7 +184,7 @@ $mpdf->WriteHTML($html);
  
  
 //save the file put which location you need folder/filname
-$mpdf->Output("pelamar - ".$nama_lengkap."-".$posisi.".pdf", 'F');
+$mpdf->Output("pelamar-".$nama_lengkap."-".$posisi.".pdf", 'D');
  
  
 //out put in browser below output function

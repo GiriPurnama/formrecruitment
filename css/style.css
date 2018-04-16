@@ -145,3 +145,15 @@ label.danger-text {
  #social-em:hover {
      color: #f39c12;
  }
+ span.radio-2 {
+    padding-left: 10px;
+    position: relative;
+    top: 8px;
+    left: -13px;
+}
+.radio-2 label {
+    position: relative;
+    left: 2px;
+    top: -2px;
+    font-weight: normal;
+}

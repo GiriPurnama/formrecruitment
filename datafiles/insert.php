@@ -48,6 +48,7 @@
 		$promosi_diri = mysqli_real_escape_string($db, trim(strtoupper($_POST['promosi_diri'])));
 		$tinggi_badan = mysqli_real_escape_string($db, trim(strtoupper($_POST['tinggi_badan'])));
 		$berat_badan = mysqli_real_escape_string($db, trim(strtoupper($_POST['berat_badan'])));
+		$kuliah = strtoupper($_POST['kuliah']);
 
 		$fileinfo=PATHINFO($_FILES["foto"]["name"]);
 		$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
@@ -100,6 +101,7 @@
 															tinggi_badan,
 															berat_badan,
 															token,
+															kuliah,
 															post_date)
 															VALUES('$posisi',
 																	'$refrensi',
@@ -130,6 +132,7 @@
 																	'$tinggi_badan',
 																	'$berat_badan',
 																	'$token',
+																	'$kuliah',
 																	 NOW())");
 		if ($query) {
 			// jika berhasil tampilkan pesan berhasil insert data

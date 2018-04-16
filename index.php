@@ -115,7 +115,7 @@
 						</div>
 						<div class="form-group col-md-6">
 							<div class="col-md-6" style="padding-left:0px;">
-								<label for="berat_badan">Berat Badan :</label>
+								<label for="berat_badan">Berat Badan* :</label>
     							<input type="text" name="berat_badan" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" required>
 							</div>
 							<div class="col-md-6" style="padding-left:0px;">
@@ -135,20 +135,33 @@
 							<label for="telepon">Telepon :</label>
     						<input type="text" class="form-control" id="idTelepon" name="telepon" autocomplete="off" maxlength="12" onKeyPress="return goodchars(event,'0123456789',this)">
 						</div>
+						
 						<div class="form-group col-md-6">
-						  <label for="pendidikan_terakhir">Pendidikan Terakhir* :</label>
-						  <select class="form-control opacity0" id="pendidikan_terakhir" name="pendidikan_terakhir">
-						  	<option value="">-</option>
-						    <option value="SMA">SMA</option>
-						    <option value="D3">D3</option>
-						    <option value="S1">S1</option>
-						    <option value="S2">S2</option>
-						    <option value="S3">S3</option>
-						  </select>
+							<label for="kemampuan">Kemampuan Dimiliki* :</label>
+    						<input type="text" class="form-control" id="pengalaman" name="kemampuan_komputer" required>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="kemampuan">Kemampuan Komputer* :</label>
-    						<input type="text" class="form-control" id="pengalaman" name="kemampuan_komputer" required>
+						  <div class="col-md-6" style="padding-left:0px;">
+							  <label for="pendidikan_terakhir">Pendidikan Terakhir* :</label>
+							  <select class="form-control opacity0" id="pendidikan_terakhir" name="pendidikan_terakhir">
+							  	<option value="">-</option>
+							    <option value="SMA">SMA</option>
+							    <option value="D3">D3</option>
+							    <option value="S1">S1</option>
+							    <option value="S2">S2</option>
+							    <option value="S3">S3</option>
+							  </select>
+						  </div>
+						  <div class="col-md-6" style="padding-left:0px; padding-left:5px;">
+						  	<label for="pendidikan_terakhir">Apakah Sedang Kuliah?*</label>
+						  	  <span class="radio-2">
+							  	<input type="radio" name="kuliah" value="KULIAH"><label>KULIAH</label>
+						  	  </span>
+						  	  <span class="radio-2">
+							  	<input type="radio" name="kuliah" value="SUDAH LULUS"><label>SUDAH LULUS</label>
+						  	  </span>
+							
+						  </div>
 						</div>
 						<div class="form-group col-md-6">
 						  <label for="bahasa" class="wd100">Bahasa Asing :</label>
@@ -385,14 +398,19 @@
 	        }else{
 	        	$("#promosiDiri").removeClass('error-field');
 	        }
+	        if($("input[name='tinggi_badan']").val()===""){
+	        	$("input[name='tinggi_badan']").addClass("error-field");
+	            status = false;
+	        }else{
+	        	$("input[name='tinggi_badan']").removeClass('error-field');
+	        }
+	        if($("input[name='berat_badan']").val()===""){
+	        	$("input[name='berat_badan']").addClass("error-field");
+	            status = false;
+	        }else{
+	        	$("input[name='berat_badan']").removeClass('error-field');
+	        }
 
-
-	        // if($("input[name='jadwal_interview']").val()===""){
-	        // 	$("input[name='jadwal_interview']").addClass("error-field");
-	        //     status = false;
-	        // }else{
-	        // 	$("input[name='jadwal_interview']").removeClass('error-field');
-	        // }
 
 	        var ddl = document.getElementById("refrensi");
  			var selectedValue = ddl.options[ddl.selectedIndex].value;
@@ -453,6 +471,13 @@
 	        	status = false;
 	        } else{
 	        	$('.radio').removeClass("error-field");
+	        }
+
+	        if($("input[name='kuliah']").is(':checked')=="") { 
+	        	$('.radio-2').addClass("error-field");
+	        	status = false;
+	        } else{
+	        	$('.radio-2').removeClass("error-field");
 	        }
 
 	        if( document.getElementById("foto").files.length == 0 ){

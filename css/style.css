@@ -70,6 +70,9 @@ textarea {
 .wd100{
 	width: 100%;
 }
+.wd50{
+    width: 50%;
+}
 .btn-submit{
 	border-radius: 5px;
     width: 15%;

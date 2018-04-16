@@ -37,7 +37,7 @@ include "../config/koneksi.php";
         }
       } 
 $html = '
-<div>
+<div style="background-image:url(img/hera-black-op5.png); background-image-resize: 15; background-position: center center; background-repeat: no-repeat;">
 	<div>
 		<img width="100" height="130" style="margin-left:80%;padding-top:100px" src="'.$foto.'">
 	</div>
@@ -157,10 +157,10 @@ $html = '
 	</table>
 	<div style="padding-top:100px;">
 		<img width="300" height="150" src="'.$ktp.'">
-		<img style="margin-left:50px;" width="300" height="150" src="'.$ijazah.'">      
 	</div>
 	
 </div>
+<img style="padding-top:100px;" src="'.$ijazah.'">      
 ';
 
 $header = '<img src="../image/logoPng_harda.png" style="height:120px; margin-right:50%;" >';
@@ -184,8 +184,8 @@ $mpdf->WriteHTML($html);
 // $mpdf->SetWatermarkText('PT Harda Esa Raksa');
 // $mpdf->showWatermarkText = true;
 // $mpdf->watermarkTextAlpha = 0.1;
-$mpdf->SetWatermarkImage('img/hera-black2.png');
-$mpdf->showWatermarkImage = true;
+// $mpdf->SetWatermarkImage('img/hera-black2.png');
+// $mpdf->showWatermarkImage = true;
  
  
 //save the file put which location you need folder/filname

@@ -22,7 +22,7 @@
 		$status_sipil = strtoupper($_POST['status_sipil']);
 		$alamat_email = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_email'])));
 		$alamat_sekarang = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_sekarang'])));
-		$alamat_domisili = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_domisili'])));
+		// $alamat_domisili = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_domisili'])));
 		$no_handphone = strtoupper($_POST['no_handphone']);
 		$telepon = strtoupper($_POST['telepon']);
 		$pendidikan_terakhir = strtoupper($_POST['pendidikan_terakhir']);
@@ -35,6 +35,8 @@
 		$ktp = mysqli_real_escape_string($db, trim($_POST['ktp']));
 		$ijazah = mysqli_real_escape_string($db, trim($_POST['ijazah']));
 		$promosi_diri = mysqli_real_escape_string($db, trim(strtoupper($_POST['promosi_diri'])));
+		$tinggi_badan = mysqli_real_escape_string($db, trim(strtoupper($_POST['tinggi_badan'])));
+		$berat_badan = mysqli_real_escape_string($db, trim(strtoupper($_POST['berat_badan'])));
 
 		$fileinfo=PATHINFO($_FILES["foto"]["name"]);
 		$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
@@ -52,10 +54,7 @@
 		$location3="../upload/" . $newFilename3;
 
 		
-		// $jadwal = $_POST['jadwal_interview'];
-		// $jdl = explode('-',$tanggal);
-		// $jadwal_interview = $jdl[2]."-".$jdl[1]."-".$jdl[0]; 
-		$jadwal_interview = strtoupper($_POST['jadwal_interview']);
+		// $jadwal_interview = strtoupper($_POST['jadwal_interview']);
 
 		$query = mysqli_query($db, "INSERT INTO recruitment(posisi,
 															refrensi,
@@ -70,7 +69,6 @@
 															status_sipil,
 															alamat_email,
 															alamat_sekarang,
-															alamat_domisili,
 															no_handphone,
 															telepon,
 															pendidikan_terakhir,
@@ -84,6 +82,8 @@
 															ijazah,
 															jadwal_interview,
 															promosi_diri,
+															tinggi_badan,
+															berat_badan,
 															post_date)
 															VALUES('$posisi',
 																	'$refrensi',
@@ -98,7 +98,6 @@
 																	'$status_sipil',
 																	'$alamat_email',
 																	'$alamat_sekarang',
-																	'$alamat_domisili',
 																	'$no_handphone',
 																	'$telepon',
 																	'$pendidikan_terakhir',
@@ -112,6 +111,8 @@
 																	'$location3',
 																	'$jadwal_interview',
 																	'$promosi_diri',
+																	'$tinggi_badan',
+																	'$berat_badan',
 																	 NOW())");
 		if ($query) {
 			// jika berhasil tampilkan pesan berhasil insert data

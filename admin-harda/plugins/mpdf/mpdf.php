@@ -13693,7 +13693,7 @@ function SetWatermarkText($txt='', $alpha=-1) {
 	$this->watermarkText = $txt;
 }
 
-function SetWatermarkImage($src, $alpha=-1, $size=array(100,70), $pos='F') {
+function SetWatermarkImage($src, $alpha=-1, $size=array(100,70), $pos='P') {
 	if ($alpha>=0) $this->watermarkImageAlpha = $alpha;
 	$this->watermarkImage = $src;
 	$this->watermark_size = $size;

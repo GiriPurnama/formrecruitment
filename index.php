@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="logoHarda">
-		<img src="image/logoPng_harda.png">
+		<marquee><img src="image/logoPng_harda.png"></marquee>
 	</div>
 	<div class="container">
 		<div class="row">
@@ -114,12 +114,18 @@
     						<input type="email" class="form-control" id="alamat_email" name="alamat_email" required>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="alamat_sekarang">Alamat Sekarang* :</label>
-    						<textarea name="alamat_sekarang" class="form-control textareaSekarang"></textarea>
+							<div class="col-md-6" style="padding-left:0px;">
+								<label for="berat_badan">Berat Badan :</label>
+    							<input type="text" name="berat_badan" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" required>
+							</div>
+							<div class="col-md-6" style="padding-left:0px;">
+								<label for="berat_badan">Tinggi Badan* :</label>
+    							<input type="text" name="tinggi_badan" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" required>
+							</div>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="alamat_domisili">Alamat Domisili* :</label>
-    						<textarea name="alamat_domisili" class="form-control textareaDomisili"></textarea>
+							<label for="alamat_sekarang">Alamat Sekarang* :</label>
+    						<textarea name="alamat_sekarang" class="form-control textareaSekarang" style="height:34px;"></textarea>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="noHandphone">No Handphone* :</label>
@@ -150,20 +156,6 @@
 							<label class="radio-inline"><input type="radio" name="bahasa_asing" value="MANDARIN">MANDARIN</label>
 							<label class="radio-inline"><input type="radio" name="bahasa_asing" value="JEPANG">JEPANG</label>
 							<label class="radio-inline"><input type="radio" name="bahasa_asing" value="JERMAN">JERMAN</label>
-							<!-- 
-								<div class="checkbox-inline">
-								  <label><input type="checkbox" name="bahasa_asing" value="INGGRIS">Inggris</label>
-								</div>
-								<div class="checkbox-inline">
-								  <label><input type="checkbox" name="bahasa_asing" value="MANDARIN">Mandarin</label>
-								</div>
-								<div class="checkbox-inline">
-								  <label><input type="checkbox" name="bahasa_asing" value="JEPANG">Jepang</label>
-								</div>
-								<div class="checkbox-inline">
-								  <label><input type="checkbox" name="bahasa_asing" value="GERMAN">German</label>
-								</div> 
-							-->
 						</div>
 						<div class="form-group col-md-6">
 							<label for="riwayat">Riwayat Penyakit :</label>

@@ -40,7 +40,6 @@ header("Content-Disposition: attachment; filename=pelamar-exportxls-".date("d-m-
              <th>Status Sipil</th>
              <th>Alamat Email</th>
              <th>Alamat Sekarang</th>
-             <th>Alamat Domisili</th>
              <th>No Handphone</th>
              <th>Telepon</th>
              <th>Pendidikan Terakhir</th>
@@ -73,7 +72,6 @@ header("Content-Disposition: attachment; filename=pelamar-exportxls-".date("d-m-
             echo '<td>'.$rowshow['status_sipil'].'</td>';
             echo '<td>'.$rowshow['alamat_email'].'</td>';
             echo '<td>'.$rowshow['alamat_sekarang'].'</td>';
-            echo '<td>'.$rowshow['alamat_domisili'].'</td>';
             echo '<td>'.$rowshow['no_handphone'].'</td>';
             echo '<td>'.$rowshow['telepon'].'</td>';
             echo '<td>'.$rowshow['pendidikan_terakhir'].'</td>';

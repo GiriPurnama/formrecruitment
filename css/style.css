@@ -157,3 +157,19 @@ label.danger-text {
     top: -2px;
     font-weight: normal;
 }
+.box-information{
+    background: #FFF;
+    display: flex;
+    margin-top: 128px;
+    padding: 25px 20px;
+    margin-bottom: 18%;
+}
+.box-alert{
+    margin-top: 30px;
+    width: 100%;
+}
+.back-link{
+    position: absolute;
+    margin-top: 10%;
+    left: 33px;
+}

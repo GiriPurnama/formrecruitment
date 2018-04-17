@@ -138,12 +138,12 @@
 			// jika berhasil tampilkan pesan berhasil insert data
 			// header('location: index.php?alert=2');
 			// echo "berhasil";
-			header('location: ../index.php?alert=2');
+			header('location: ../inforegistrasi.php?alert=2');
 		} else {
 			// jika gagal tampilkan pesan kesalahan
 			// header('location: index.php?alert=1');
 			// echo "gagal";
-			header('location: ../index.php?alert=1');
+			header('location: ../inforegistrasi.php?alert=1');
 		}	
 	}
 ?>

@@ -5009,11 +5009,15 @@ span.label-user {
     font-size: 16px;
     font-weight: bold;
     margin-right: 10px;
-    position: absolute;
+    /* position: absolute; */
+    margin-bottom: 29px;
+    display: table;
 }
 span.field-user {
-    position: relative;
+    position: absolute;
     left: 38%;
+    top: 0px;
+    display: table-cell;
 }
 span.field-user:before {
     content: ':';
@@ -5021,7 +5025,7 @@ span.field-user:before {
     right: 11px;
 }
 .col-md-6.pad-label {
-    padding-bottom: 7px;
+    padding-bottom: 0px;
 }
 img.img-logo {
     width: 130px;

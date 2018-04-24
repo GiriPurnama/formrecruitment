@@ -49,6 +49,8 @@
           $komentar = $data['komentar'];
           $status_pelamar = $data['status_pelamar'];
           $posisi_rekomendasi = $data['posisi_rekomendasi'];
+          $berat_badan = $data['berat_badan'];
+          $tinggi_badan = $data['tinggi_badan'];
         }
       }
   ?>
@@ -96,102 +98,185 @@
                     }
                 ?>
               </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Posisi</span>
-                  <span class="field-user"><?php echo $posisi; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Refrensi</span>
-                  <span class="field-user"><?php echo $refrensi; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Nama Lengkap</span>
-                  <span class="field-user"><?php echo $nama_lengkap ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Warga Negara</span>
-                  <span class="field-user"><?php echo $warga_negara; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Tempat Lahir</span>
-                  <span class="field-user"><?php echo $tempat_lahir; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Tanggal Lahir</span>
-                  <span class="field-user"><?php echo $tanggal_lahir; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Agama</span>
-                  <span class="field-user"><?php echo $agama; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Jenis Kelamin</span>
-                  <span class="field-user"><?php echo $jenis_kelamin; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">No KTP</span>
-                  <span class="field-user"><?php echo $no_ktp; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">No SIM</span>
-                  <span class="field-user"><?php echo $no_sim; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Status Sipil</span>
-                  <span class="field-user"><?php echo $status_sipil; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Alamat Email</span>
-                  <span class="field-user"><?php echo $alamat_email; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Alamat Sekarang</span>
-                  <span class="field-user"><?php echo $alamat_sekarang; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Alamat Domisili</span>
-                  <span class="field-user"><?php echo $alamat_domisili; ?></span>
-              </div>
-              <div class="col-md-6">
-                  <span class="label-user">No Handphone</span>
-                  <span class="field-user"><?php echo $no_handphone; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">No Telepon</span>
-                  <span class="field-user"><?php echo $telepon; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Pendidikan Terakhir</span>
-                  <span class="field-user"><?php echo $pendidikan_terakhir; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Kemampuan Komputer</span>
-                  <span class="field-user"><?php echo $kemampuan_komputer; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Bahasa Asing</span>
-                  <span class="field-user"><?php echo $bahasa_asing; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Riwayat Penyakit</span>
-                  <span class="field-user"><?php echo $riwayat_penyakit; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Pengalaman Kerja</span>
-                  <span class="field-user"><?php echo $pengalaman_kerja; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Lama Pengalaman</span>
-                  <span class="field-user"><?php echo $lama_pengalaman; ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Jadwal Interview</span>
-                  <span class="field-user"><?php echo $jadwal_interview ?></span>
-              </div>
-              <div class="col-md-6 pad-label">
-                  <span class="label-user">Tanggal Post</span>
-                  <span class="field-user"><?php echo $post_date ?></span>
-              </div>
+             <!--  
+                <table>
+                  <tbody>
+                  <tr>
+                    <td>Posisi</td>
+                    <td>Nama Lengkap</td>
+                    <td>Tempat Lahir</td>
+                    <td>Agama</td>
+                    <td>No KTP</td>
+                    <td>Status Sipil</td>
+                    <td>Alamat Sekarang</td>
+                    <td>No Handphone</td>
+                    <td>Pendidikan Terakhir</td>
+                    <td>Bahasa Asing</td>
+                    <td>Pengalaman Kerja</td>
+                  </tr>
+                  <tr>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $posisi; ?></td>
+                    <td><?php echo $refrensi; ?></td>
+                    <td><?php echo $nama_lengkap; ?></td>
+                    <td><?php echo $tempat_lahir; ?></td>
+                    <td><?php echo $agama; ?></td>
+                    <td><?php echo $no_ktp; ?></td>
+                    <td><?php echo $status_sipil; ?></td>
+                    <td><?php echo $alamat_sekarang; ?></td>
+                    <td><?php echo $no_handphone; ?></td>
+                    <td><?php echo $pendidikan_terakhir; ?></td>
+                    <td><?php echo $bahasa_asing; ?></td>
+                    <td><?php echo $pengalaman_kerja; ?></td>
+                  </tr>
+                  <tr>
+                    <td>Refrensi</td>
+                    <td>Warga Negara</td>
+                    <td>Tanggal Lahir</td>
+                    <td>Jenis Kelamin</td>
+                    <td>No Sim</td>
+                    <td>Alamat Email</td>
+                    <td>Tinggi/Berat</td>
+                    <td>No Telepon</td>
+                    <td>Kemampuan Dimiliki</td>
+                    <td>Riwayat Penyakit</td>
+                    <td>Lama Pengalaman</td>
+                  </tr>
+                  <tr>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                    <td>:</td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $refrensi; ?></td>
+                    <td><?php echo $warga_negara; ?></td>
+                    <td><?php echo $tanggal_lahir; ?></td>
+                    <td><?php echo $jenis_kelamin; ?></td>
+                    <td><?php echo $no_sim; ?></td>
+                    <td><?php echo $alamat_email; ?></td>
+                    <td><?php echo $tinggi_badan; ?>/<?php echo $berat_badan; ?></td>
+                    <td><?php echo $telepon; ?></td>
+                    <td><?php echo $kemampuan_komputer; ?></td>
+                    <td><?php echo $riwayat_penyakit; ?></td>
+                    <td><?php echo $lama_pengalaman; ?></td>
+                  </tr>
+                  </tbody>
+                </table> 
+              -->
+              
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Posisi</span>
+                    <span class="field-user"><?php echo $posisi; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Refrensi</span>
+                    <span class="field-user"><?php echo $refrensi; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Nama Lengkap</span>
+                    <span class="field-user"><?php echo $nama_lengkap ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Warga Negara</span>
+                    <span class="field-user"><?php echo $warga_negara; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Tempat Lahir</span>
+                    <span class="field-user"><?php echo $tempat_lahir; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Tanggal Lahir</span>
+                    <span class="field-user"><?php echo $tanggal_lahir; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Agama</span>
+                    <span class="field-user"><?php echo $agama; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Jenis Kelamin</span>
+                    <span class="field-user"><?php echo $jenis_kelamin; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">No KTP</span>
+                    <span class="field-user"><?php echo $no_ktp; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">No SIM</span>
+                    <span class="field-user"><?php echo $no_sim; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Status Sipil</span>
+                    <span class="field-user"><?php echo $status_sipil; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Alamat Email</span>
+                    <span class="field-user"><?php echo $alamat_email; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Alamat Sekarang</span>
+                    <span class="field-user"><?php echo $alamat_sekarang; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Tinggi/Berat</span>
+                    <span class="field-user"><?php echo $tinggi_badan; ?>/<?php echo $berat_badan; ?></span>
+                </div>
+                <div class="col-md-6">
+                    <span class="label-user">No Handphone</span>
+                    <span class="field-user"><?php echo $no_handphone; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">No Telepon</span>
+                    <span class="field-user"><?php echo $telepon; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Pendidikan Terakhir</span>
+                    <span class="field-user"><?php echo $pendidikan_terakhir; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Kemampuan Dimiliki</span>
+                    <span class="field-user"><?php echo $kemampuan_komputer; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Bahasa Asing</span>
+                    <span class="field-user"><?php echo $bahasa_asing; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Riwayat Penyakit</span>
+                    <span class="field-user"><?php echo $riwayat_penyakit; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Pengalaman Kerja</span>
+                    <span class="field-user"><?php echo $pengalaman_kerja; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Lama Pengalaman</span>
+                    <span class="field-user"><?php echo $lama_pengalaman; ?></span>
+                </div>
+                <div class="col-md-6 pad-label">
+                    <span class="label-user">Tanggal Post</span>
+                    <span class="field-user"><?php echo $post_date ?></span>
+                </div> 
+             
               <div class="col-md-12 text-center">
                 <div class="col-md-6">
                     <img class="img-user-width" src="<?php echo $ktp; ?>">

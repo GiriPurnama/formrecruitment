@@ -34,6 +34,8 @@ include "../config/koneksi.php";
           $post_date = $data['post_date'];
           $komentar = $data['komentar'];
           $status_pelamar = $data['status_pelamar'];
+          $tinggi_badan = $data['tinggi_badan'];
+          $berat_badan = $data['berat_badan'];
         }
       } 
 $html = '
@@ -47,11 +49,6 @@ $html = '
 	    		<td style="width:50%";>Posisi</td>
 	    		<td style="width:20%";>:</td>
 	    		<td style="width:50%";>'.$posisi.'</td>
-	    	</tr>
-	    	<tr>
-	    		<td style="width:50%";>Refrensi</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$refrensi.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Nama Lengkap</td>
@@ -82,6 +79,11 @@ $html = '
 	    		<td style="width:50%";>Jenis Kelamin</td>
 	    		<td style="width:20%";>:</td>
 	    		<td style="width:50%";>'.$jenis_kelamin.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td style="width:50%";>Tinggi/Berat</td>
+	    		<td style="width:20%";>:</td>
+	    		<td style="width:50%";>'.$tinggi_badan.'/'.$berat_badan.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>No KTP</td>
@@ -124,7 +126,7 @@ $html = '
 	    		<td style="width:50%";>'.$pendidikan_terakhir.'</td>
 	    	</tr>
 	    	<tr>
-	    		<td style="width:50%";>Kemampuan Komputer</td>
+	    		<td style="width:50%";>Kemampuan Dimiliki</td>
 	    		<td style="width:20%";>:</td>
 	    		<td style="width:50%";>'.$kemampuan_komputer.'</td>
 	    	</tr>
@@ -184,7 +186,7 @@ $mpdf->WriteHTML($html);
  
  
 //save the file put which location you need folder/filname
-$mpdf->Output("pelamar-".$nama_lengkap."-".$posisi.".pdf", 'D');
+$mpdf->Output("pelamar-".$nama_lengkap."-".$posisi.".pdf", 'F');
  
  
 //out put in browser below output function

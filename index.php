@@ -13,11 +13,17 @@
 	</div>
 	<div class="container">
 		<div class="row">
+			
 			<div class="col-md-12">
 			<div class="info-user">
 			</div>
+
+			<div id="labelSuccess" class='alert alert-success alert-dismissible' role='alert'>
+	            <strong><i class='glyphicon glyphicon-ok-circle'></i> Terimakasih </strong> Data berhasil disimpan.
+            </div>
+
 				<div class="formUser">
-					<form method="post" action="datafiles/insert.php" enctype="multipart/form-data">
+					<form id="formPelamar" method="post"  enctype="multipart/form-data">
 						<div class="form-group col-md-6">
 							<label for="Posisi">Posisi yang Dilamar* :</label>
     						<input type="text" class="form-control" id="position" name="posisi" required>
@@ -39,7 +45,7 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label for="Nama">Nama Lengkap* :</label>
-    						<input type="text" class="form-control" id="fullName" name="nama_lengkap" required>
+    						<input type="text" class="form-control" id="fullName" autocomplete="off" name="nama_lengkap" required>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="wargaNegara">Warga Negara :</label>
@@ -51,7 +57,7 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label for="tanggal_lahir">Tanggal Lahir* :</label>
-    						<input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required>
+    						<input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required readonly>
 						</div>
 						<div class="form-group col-md-6">
 						  <label for="Agama">Agama* :</label>
@@ -75,11 +81,11 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label for="idCart">No.KTP* :</label>
-    						<input type="text" class="form-control" id="idCard" name="no_ktp" onKeyPress="return goodchars(event,'0123456789',this)" required>
+    						<input type="text" class="form-control" id="idCard" autocomplete="off" name="no_ktp" onKeyPress="return goodchars(event,'0123456789',this)" required>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="idSim">No.SIM:</label>
-    						<input type="text" class="form-control" name="no_sim" id="idSim" onKeyPress="return goodchars(event,'0123456789',this)">
+    						<input type="text" class="form-control" name="no_sim" autocomplete="off" id="idSim" onKeyPress="return goodchars(event,'0123456789',this)">
 						</div>
 						<div class="form-group col-md-6">
 						  <label for="status_sipil">Status Sipil* :</label>
@@ -92,21 +98,21 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label for="alamat_email">Alamat Email* :</label>
-    						<input type="email" class="form-control" id="alamat_email" name="alamat_email" required>
+    						<input type="email" class="form-control" autocomplete="off" id="alamat_email" name="alamat_email" required>
 						</div>
 						<div class="form-group col-md-6">
 							<div class="col-md-6" style="padding-left:0px;">
 								<label for="berat_badan">Berat Badan* :</label>
-    							<input type="text" name="berat_badan" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" required>
+    							<input type="text" name="berat_badan" id="berat_badan" autocomplete="off" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" required>
 							</div>
 							<div class="col-md-6" style="padding-left:0px;">
 								<label for="berat_badan">Tinggi Badan* :</label>
-    							<input type="text" name="tinggi_badan" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" required>
+    							<input type="text" name="tinggi_badan" id="tinggi_badan" autocomplete="off" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" required>
 							</div>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="alamat_sekarang">Alamat Sekarang* :</label>
-    						<textarea name="alamat_sekarang" class="form-control textareaSekarang" style="height:34px;"></textarea>
+    						<textarea name="alamat_sekarang" id="alamat_sekarang" class="form-control textareaSekarang" style="height:34px;"></textarea>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="noHandphone">No Handphone* :</label>
@@ -119,7 +125,7 @@
 						
 						<div class="form-group col-md-6">
 							<label for="kemampuan">Kemampuan Dimiliki* :</label>
-    						<input type="text" class="form-control" id="pengalaman" name="kemampuan_komputer" required>
+    						<input type="text" class="form-control" autocomplete="off" id="skill" name="kemampuan_komputer" required>
 						</div>
 						<div class="form-group col-md-6">
 						  <div class="col-md-6" style="padding-left:0px;">
@@ -153,11 +159,11 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label for="riwayat">Riwayat Penyakit :</label>
-    						<input type="text" class="form-control" id="riwayat" name="riwayat_penyakit">
+    						<input type="text" class="form-control" autocomplete="off" id="riwayat" name="riwayat_penyakit">
 						</div>
 						<div class="form-group col-md-6">
 							<label for="pengalaman">Pengalaman Pekerjaan* :</label>
-    						<input type="text" class="form-control" id="pengalaman_kerja" name="pengalaman_kerja" required>
+    						<input type="text" class="form-control" autocomplete="off" id="pengalaman_kerja" name="pengalaman_kerja" required>
 						</div>
 						<div class="form-group col-md-6">
 						  <label for="lama_pengalaman">Lama Pengalaman* :</label>
@@ -175,14 +181,17 @@
 						<div class="form-group col-md-6">
 							<label for="foto">Upload Foto* :</label>
     						<input type="file" accept="image/*" class="form-control" id="foto" name="foto" required>
+    						<span class="small-font">Ukuran Foto Maksimal <b>1 MB</b>*</span>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="ktp">Upload KTP* :</label>
     						<input type="file" accept="image/*" class="form-control" id="ktp" name="ktp" required>
+							<span class="small-font">Ukuran KTP Maksimal <b>1 MB</b>*</span>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="ijazah">Upload Ijazah* :</label>
     						<input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah" required>
+							<span class="small-font">Ukuran Ijazah Maksimal <b>1 MB</b>*</span>
 						</div>
 						<!-- <div class="form-group col-md-6">
 							<label for="jadwal_interview">Jadwal Interview* :</label>
@@ -190,12 +199,12 @@
 						</div> -->
 						<div class="form-group col-md-6">
 							<label for="kemampuan">Promosikan Diri Anda* :</label>
-    						<input type="text" class="form-control" id="promosiDiri" name="promosi_diri" required>
-						</div>
-						<div class="form-group col-md-12">
-							<input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Kirim">
+    						<input type="text" class="form-control" autocomplete="off" id="promosiDiri" name="promosi_diri" required>
 						</div>
 					</form>
+					<div class="form-group col-md-12">
+						<input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Kirim">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -270,6 +279,64 @@
 <script type="text/javascript">
 	$( document ).ready(function() {
 
+		
+		
+		$("#labelSuccess").hide();
+
+		$(document).on('click', '.btn-submit', function(){
+
+			if (CheckValidasiPeserta() == true) {
+
+			    var data = new FormData(this);
+				data.append('posisi', $('#position').val());
+				data.append('refrensi', $('#refrensi').val());
+				data.append('nama_lengkap', $('#fullName').val());
+				data.append('warga_negara', $('#wargaNegara').val());
+				data.append('tempat_lahir', $('#tempat_lahir').val());
+				data.append('tanggal_lahir', $('#tanggal_lahir').val());
+				data.append('agama', $('#agama').val());
+				data.append('jenis_kelamin', $("input[name='jenis_kelamin']:checked").val());
+				data.append('no_ktp', $('#idCard').val());
+				data.append('no_sim', $('#idSim').val());
+				data.append('status_sipil', $('#status_sipil').val());
+				data.append('alamat_email', $('#alamat_email').val());
+				data.append('berat_badan', $('#berat_badan').val());
+				data.append('tinggi_badan', $('#tinggi_badan').val());
+				data.append('alamat_sekarang', $('#alamat_sekarang').val());
+				data.append('no_handphone', $('#idHandphone').val());
+				data.append('telepon', $('#idTelepon').val());
+				data.append('kemampuan_komputer', $('#skill').val());
+				data.append('pendidikan_terakhir', $('#pendidikan_terakhir').val());
+				data.append('kuliah', $("input[name='kuliah']:checked").val());
+				data.append('bahasa_asing', $("input[name='bahasa_asing']:checked").val());
+				data.append('riwayat_penyakit', $('#riwayat').val());
+				data.append('pengalaman_kerja', $('#pengalaman_kerja').val());
+				data.append('lama_pengalaman', $('#lama_pengalaman').val());
+				data.append('foto', $('#foto')[0].files[0]);
+				data.append('ktp', $('#ktp')[0].files[0]);
+				data.append('ijazah', $('#ijazah')[0].files[0]);
+				data.append('promosi_diri', $('#promosiDiri').val());
+
+				$.ajax({
+					 url : "datafiles/insert.php",  
+					 method: 'POST',
+					 cache: false,
+					 contentType: false,
+					 processData: false,
+					 data : data,
+					 success: function(data){
+					    $("#labelSuccess").show();
+					    $("#labelSuccess").delay(3000).fadeOut('slow');
+					    $('#formPelamar').trigger("reset");
+					    $("html, body").animate({ scrollTop: 0 }, "slow");
+					 }
+				});
+			} else {
+				CheckValidasiPeserta();
+			}
+
+		  });
+
 		$('#refrensi').change(function(){
 		    if( $(this).val() == '1'){
 		        $('#refrensi').removeAttr('name');
@@ -288,14 +355,11 @@
 
     	$(".danger-text").hide();
 
-    	$("#send").click(function() {
-			if (CheckValidasiPeserta()===true) {
-				console.log("Test");
-			};
-		});
-
 		function CheckValidasiPeserta(){
 	  		var status = true;
+
+	  		var imageSize = $('#foto, #ktp, #ijazah')[0].files[0].size;
+  			var sizeImg = 1048576;
 
 	        if($("input[name='posisi']").val()===""){
 	        	$("input[name='posisi']").addClass("error-field");
@@ -463,6 +527,9 @@
 
 	        if( document.getElementById("foto").files.length == 0 ){
     			$("#foto").addClass("error-field-file");
+			} else if(imageSize >= sizeImg){
+    			$("#foto").addClass("error-field-file");
+    			alert("Ukuran Foto harus Kurang dari 1 MB");
     			status = false;
 			} else {
 				$("#foto").removeClass("error-field-file");
@@ -471,6 +538,10 @@
 			if( document.getElementById("ktp").files.length == 0 ){
     			$("#ktp").addClass("error-field-file");
     			status = false;
+			} else if(imageSize >= sizeImg){
+				$("#ktp").addClass("error-field-file");
+				alert("Ukuran KTP harus Kurang dari 1 MB"); 
+				status = false;
 			} else {
 				$("#ktp").removeClass("error-field-file");
 			}
@@ -478,6 +549,10 @@
 			if( document.getElementById("ijazah").files.length == 0 ){
     			$("#ijazah").addClass("error-field-file");
     			status = false;
+			} else if(imageSize >= sizeImg){
+				$("#ijazah").addClass("error-field-file");
+				alert("Ukuran Ijazah harus Kurang dari 1 MB");
+				status = false;
 			} else {
 				$("#ijazah").removeClass("error-field-file");
 			}

@@ -13,7 +13,7 @@
 	    return implode('', $pieces);
 	}
 
-	if (isset($_POST['simpan'])) {
+	//if (isset($_POST['simpan'])) {
 		$posisi = mysqli_real_escape_string($db, trim(strtoupper($_POST['posisi'])));
 		// $refrensi = mysqli_real_escape_string($db, trim($_POST['refrensi']));
 		$refrensi = strtoupper($_POST['refrensi']);
@@ -145,5 +145,5 @@
 			// echo "gagal";
 			header('location: ../inforegistrasi.php?alert=1');
 		}	
-	}
+	//}
 ?>

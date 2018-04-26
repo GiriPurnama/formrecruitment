@@ -41,6 +41,8 @@
 		$bahasa_asing = strtoupper($_POST['bahasa_asing']);
 		$riwayat_penyakit = mysqli_real_escape_string($db, trim(strtoupper($_POST['riwayat_penyakit'])));
 		$pengalaman_kerja = mysqli_real_escape_string($db, trim(strtoupper($_POST['pengalaman_kerja'])));
+		$perusahaan_kerja = mysqli_real_escape_string($db, trim(strtoupper($_POST['perusahaan_kerja'])));
+		$tahun_kerja = mysqli_real_escape_string($db, trim(strtoupper($_POST['tahun_kerja'])));
 		$lama_pengalaman = strtoupper($_POST['lama_pengalaman']);
 		$foto = mysqli_real_escape_string($db, trim($_POST['foto']));
 		$ktp = mysqli_real_escape_string($db, trim($_POST['ktp']));
@@ -92,6 +94,8 @@
 															bahasa_asing,
 															riwayat_penyakit,
 															pengalaman_kerja,
+															perusahaan_kerja,
+															tahun_kerja,
 															lama_pengalaman,
 															foto,
 															ktp,
@@ -123,6 +127,8 @@
 																	'$bahasa_asing',
 																	'$riwayat_penyakit',
 																	'$pengalaman_kerja',
+																	'$perusahaan_kerja',
+																	'$tahun_kerja',
 																	'$lama_pengalaman',
 																	'$location',
 																	'$location2',

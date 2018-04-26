@@ -18,7 +18,6 @@ include "../config/koneksi.php";
           $status_sipil = $data['status_sipil'];
           $alamat_email = $data['alamat_email'];
           $alamat_sekarang = $data['alamat_sekarang'];
-          // $alamat_domisili = $data['alamat_domisili'];
           $no_handphone = $data['no_handphone'];
           $telepon     = $data['telepon'];
           $pendidikan_terakhir = $data['pendidikan_terakhir'];
@@ -26,6 +25,8 @@ include "../config/koneksi.php";
           $bahasa_asing = $data['bahasa_asing'];
           $riwayat_penyakit = $data['riwayat_penyakit'];
           $pengalaman_kerja = $data['pengalaman_kerja'];
+          $perusahaan_kerja = $data['perusahaan_kerja'];
+          $tahun_kerja = $data['tahun_kerja'];
           $lama_pengalaman = $data['lama_pengalaman'];
           $foto = $data['foto'];
           $ktp = $data['ktp'];
@@ -36,8 +37,17 @@ include "../config/koneksi.php";
           $status_pelamar = $data['status_pelamar'];
           $tinggi_badan = $data['tinggi_badan'];
           $berat_badan = $data['berat_badan'];
+          $posisi_rekomendasi = $data['posisi_rekomendasi'];
         }
-      } 
+      }
+
+      $warga_negara = $warga_negara ?: '-';
+      $no_sim = $no_sim ?: '-';
+      $telepon = $telepon ?: '-';
+      $bahasa_asing = $bahasa_asing ?: '-';
+      $riwayat_penyakit = $riwayat_penyakit ?: '-';
+      $posisi_rekomendasi = $posisi_rekomendasi ?: $posisi;  
+
 $html = '
 <div style="background-image:url(img/hera-black-op5.png); background-image-resize: 15; background-position: center center; background-repeat: no-repeat;">
 	<div>
@@ -47,108 +57,130 @@ $html = '
 		<tbody>
 			<tr>
 	    		<td style="width:50%";>Posisi</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$posisi.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$posisi_rekomendasi.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Nama Lengkap</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$nama_lengkap.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$nama_lengkap.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Warga Negara</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$warga_negara.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$warga_negara.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Tempat Lahir</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$tempat_lahir.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$tempat_lahir.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Tanggal Lahir</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$tanggal_lahir.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$tanggal_lahir.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Agama</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$agama.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$agama.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Jenis Kelamin</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$jenis_kelamin.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$jenis_kelamin.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Tinggi/Berat</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$tinggi_badan.'/'.$berat_badan.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$tinggi_badan.'/'.$berat_badan.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>No KTP</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$no_ktp.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$no_ktp.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>No SIM</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$no_sim.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$no_sim.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Status Sipil</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$status_sipil.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$status_sipil.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Alamat Email</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$alamat_email.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$alamat_email.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Alamat Sekarang</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$alamat_sekarang.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$alamat_sekarang.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>No Handphone</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$no_handphone.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$no_handphone.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Telepon</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$telepon.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$telepon.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Pendidikan Terakhir</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$pendidikan_terakhir.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$pendidikan_terakhir.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Kemampuan Dimiliki</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$kemampuan_komputer.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$kemampuan_komputer.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Bahasa Asing</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$bahasa_asing.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$bahasa_asing.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Riwayat Penyakit</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$riwayat_penyakit.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$riwayat_penyakit.'</td>
 	    	</tr>
 	    	<tr>
-	    		<td style="width:50%";>Pengalaman Kerja</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$pengalaman_kerja.'</td>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
+	    		<td style="width:50%; font-weight:bold;">PENGALAMAN KERJA</td>
+	    	</tr>
+	    	<tr>
+	    		<td style="width:50%";>Posisi</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$pengalaman_kerja.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td style="width:50%";>Perusahaan</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$perusahaan_kerja.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td style="width:50%";>Tahun Masuk</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$tahun_kerja.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Lama Pengalaman</td>
-	    		<td style="width:20%";>:</td>
-	    		<td style="width:50%";>'.$lama_pengalaman.'</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$lama_pengalaman.'</td>
 	    	</tr>
 		</tbody>
 	</table>

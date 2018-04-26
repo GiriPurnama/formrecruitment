@@ -180,3 +180,32 @@ span.small-font {
 input#tanggal_lahir {
     background: #FFF;
 }
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+.pad-left0{
+    padding-left: 0px
+}
+@media (max-width: 991px) {
+    .footer {
+        margin-top: 0;
+        display: flow-root;
+    }
+
+    span.radio-2 {
+        display: -webkit-box;
+        padding: 0px;
+    }
+
+    .checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline {
+        margin-left: 0px;
+        display: -webkit-box;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+}

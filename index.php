@@ -141,21 +141,24 @@
 						  </div>
 						  <div class="col-md-6" style="padding-left:0px; padding-left:5px;">
 						  	<label for="pendidikan_terakhir">Apakah Sedang Kuliah?*</label>
-						  	  <span class="radio-2">
-							  	<input type="radio" name="kuliah" value="KULIAH"><label>KULIAH</label>
-						  	  </span>
-						  	  <span class="radio-2">
-							  	<input type="radio" name="kuliah" value="SUDAH LULUS"><label>SUDAH LULUS</label>
-						  	  </span>
-							
+						  	  <div class="radio-option">
+							  	  <span class="radio-2">
+								  	<input type="radio" name="kuliah" value="KULIAH"><label>KULIAH</label>
+							  	  </span>
+							  	  <span class="radio-2">
+								  	<input type="radio" name="kuliah" value="SUDAH LULUS"><label>SUDAH LULUS</label>
+							  	  </span>
+						  	  </div>
 						  </div>
 						</div>
 						<div class="form-group col-md-6">
 						  <label for="bahasa" class="wd100">Bahasa Asing :</label>
-						  	<label class="radio-inline"><input type="radio" name="bahasa_asing" value="INGGRIS">INGGRIS</label>
-							<label class="radio-inline"><input type="radio" name="bahasa_asing" value="MANDARIN">MANDARIN</label>
-							<label class="radio-inline"><input type="radio" name="bahasa_asing" value="JEPANG">JEPANG</label>
-							<label class="radio-inline"><input type="radio" name="bahasa_asing" value="JERMAN">JERMAN</label>
+						  	<div>
+							  	<label class="radio-inline"><input type="radio" name="bahasa_asing" value="INGGRIS">INGGRIS</label>
+								<label class="radio-inline"><input type="radio" name="bahasa_asing" value="MANDARIN">MANDARIN</label>
+								<label class="radio-inline"><input type="radio" name="bahasa_asing" value="JEPANG">JEPANG</label>
+								<label class="radio-inline"><input type="radio" name="bahasa_asing" value="JERMAN">JERMAN</label>
+						  	</div>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="riwayat">Riwayat Penyakit :</label>
@@ -164,7 +167,7 @@
 						<div class="form-group col-md-12">
 							<label for="pengalaman">Pengalaman Pekerjaan* :</label>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 pad-left0">
 							<div class="col-md-4">
 								<label>Posisi*</label>
 								<input type="text" class="form-control" autocomplete="off" id="pengalaman_kerja" name="pengalaman_kerja" required>
@@ -224,7 +227,7 @@
 	</div>
 
 	<footer class="footer">
-		<div class="col-md-6">
+		<div class="col-md-6 float-left">
 			<p class="address-footer left">	
 				<strong>Copyright &copy; 2018 <a href="http://www.pthardaesaraksa.com" target="_BLANK">PT Harda Esa Raksa</a>.</strong> All rights
 			</p>
@@ -235,7 +238,7 @@
 	            <a href=""><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
 			</div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6 float-right">
 			<p class="address-footer right"> ILP Building 3rd Floor Suite 15 Pasar
 			Minggu Raya No. 39a Pancoran,</p>
 			<p class="address-footer right">
@@ -347,6 +350,8 @@
 					    $("#labelSuccess").delay(3000).fadeOut('slow');
 					    $('#formPelamar').trigger("reset");
 					    $("html, body").animate({ scrollTop: 0 }, "slow");
+					    $('#refrensi').attr('name', 'refrensi');
+		        		$('#myInput').remove();
 					 }
 				});
 			} else {

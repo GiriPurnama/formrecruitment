@@ -178,7 +178,7 @@
 							</div>
 							<div class="col-md-4">
 								<label>Tahun Masuk*</label>
-								<input type="text" class="form-control" autocomplete="off" id="tahun_kerja" name="tahun_kerja" required>	
+								<input type="text" class="form-control" autocomplete="off" id="tahun_kerja" name="tahun_kerja" onKeyPress="return goodchars(event,'0123456789',this)" required>	
 							</div>
 						</div>
 						<div class="form-group col-md-6">

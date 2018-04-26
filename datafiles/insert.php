@@ -15,7 +15,6 @@
 
 	//if (isset($_POST['simpan'])) {
 		$posisi = mysqli_real_escape_string($db, trim(strtoupper($_POST['posisi'])));
-		// $refrensi = mysqli_real_escape_string($db, trim($_POST['refrensi']));
 		$refrensi = strtoupper($_POST['refrensi']);
 		$nama_lengkap = mysqli_real_escape_string($db, trim(strtoupper($_POST['nama_lengkap'])));
 		$warga_negara = mysqli_real_escape_string($db, trim(strtoupper($_POST['warga_negara'])));
@@ -33,7 +32,6 @@
 		$status_sipil = strtoupper($_POST['status_sipil']);
 		$alamat_email = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_email'])));
 		$alamat_sekarang = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_sekarang'])));
-		// $alamat_domisili = mysqli_real_escape_string($db, trim(strtoupper($_POST['alamat_domisili'])));
 		$no_handphone = strtoupper($_POST['no_handphone']);
 		$telepon = strtoupper($_POST['telepon']);
 		$pendidikan_terakhir = strtoupper($_POST['pendidikan_terakhir']);
@@ -67,11 +65,15 @@
 		move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);
 		$location3="../upload/" . $newFilename3;
 
-		// $length = 3;
-		// $token = base64_encode(random_bytes($length));
 		$sortName = substr($refrensi,0,2);
 		$token = $sortName."-".random_str(3);
 		
+		$warga_negara = $warga_negara ?: '-';
+      	$no_sim = $no_sim ?: '-';
+        $telepon = $telepon ?: '-';
+        $bahasa_asing = $bahasa_asing ?: '-';
+        $riwayat_penyakit = $riwayat_penyakit ?: '-';
+
 		// $jadwal_interview = strtoupper($_POST['jadwal_interview']);
 
 		$query = mysqli_query($db, "INSERT INTO recruitment(posisi,

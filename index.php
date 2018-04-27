@@ -298,7 +298,9 @@
 		
 		$("#labelSuccess").hide();
 
-		$("#tanggal_lahir").datepicker();
+		$("#tanggal_lahir").datepicker({
+			startView:'year'
+		});
     	$("#jadwal_interview").datepicker({
     		format: 'yyyy-mm-dd'
     	});

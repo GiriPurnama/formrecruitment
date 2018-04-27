@@ -71,7 +71,7 @@
 		$warga_negara = $warga_negara ?: '-';
       	$no_sim = $no_sim ?: '-';
         $telepon = $telepon ?: '-';
-        $bahasa_asing = $bahasa_asing ?: '-';
+        // $bahasa_asing = ($bahasa_asing == "undefined" ? "-" : $bahasa_asing);
         $riwayat_penyakit = $riwayat_penyakit ?: '-';
 
 		// $jadwal_interview = strtoupper($_POST['jadwal_interview']);

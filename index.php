@@ -158,6 +158,7 @@
 								<label class="radio-inline"><input type="radio" name="bahasa_asing" value="MANDARIN">MANDARIN</label>
 								<label class="radio-inline"><input type="radio" name="bahasa_asing" value="JEPANG">JEPANG</label>
 								<label class="radio-inline"><input type="radio" name="bahasa_asing" value="JERMAN">JERMAN</label>
+								<label class="radio-inline" style="display:none;"><input type="radio" name="bahasa_asing" value="-" checked="checked"></label>
 						  	</div>
 						</div>
 						<div class="form-group col-md-6">
@@ -308,7 +309,7 @@
 
 			    var data = new FormData(this);
 				data.append('posisi', $('#position').val());
-				data.append('refrensi', $('input[name="refrensi"]').val());
+				data.append('refrensi', $('[name="refrensi"]').val());
 				data.append('nama_lengkap', $('#fullName').val());
 				data.append('warga_negara', $('#wargaNegara').val());
 				data.append('tempat_lahir', $('#tempat_lahir').val());

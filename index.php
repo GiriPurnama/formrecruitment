@@ -487,6 +487,14 @@
 	        	$("input[name='berat_badan']").removeClass('error-field');
 	        }
 
+	        if($("input[name='refrensi']").val()===""){
+	        	$("input[name='refrensi']").addClass("error-field");
+	            status = false;
+	        }else{
+	        	$("input[name='refrensi']").removeClass('error-field');
+	        }
+
+
 
 	        var ddl = document.getElementById("refrensi");
  			var selectedValue = ddl.options[ddl.selectedIndex].value;

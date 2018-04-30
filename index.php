@@ -167,33 +167,9 @@
 						</div>
 						<div class="form-group col-md-12">
 							<label for="pengalaman">Pengalaman Pekerjaan* :</label>
-						</div>
-						<div class="col-md-6 pad-left0">
-							<div class="col-md-4">
-								<label>Posisi*</label>
-								<input type="text" class="form-control" autocomplete="off" id="pengalaman_kerja" name="pengalaman_kerja" required>
-							</div>
-							<div class="col-md-4">
-								<label>Perusahaan*</label>
-								<input type="text" class="form-control" autocomplete="off" id="perusahaan_kerja" name="perusahaan_kerja" required>	
-							</div>
-							<div class="col-md-4">
-								<label>Tahun Masuk*</label>
-								<input type="text" class="form-control" autocomplete="off" id="tahun_kerja" name="tahun_kerja" onKeyPress="return goodchars(event,'0123456789',this)" required>	
-							</div>
-						</div>
-						<div class="form-group col-md-6">
-						  <label for="lama_pengalaman">Lama Pengalaman* :</label>
-						  <select class="form-control opacity0" id="lama_pengalaman" name="lama_pengalaman">
-						  	<option value="">-</option>
-						    <option value="1 TAHUN KURANG">1 Tahun Kurang </option>
-						    <option value="1 TAHUN">1 Tahun</option>
-						    <option value="2 TAHUN">2 Tahun</option>
-						    <option value="3 TAHUN">3 Tahun</option>
-						    <option value="4 TAHUN">4 Tahun</option>
-						    <option value="5 TAHUN">5 Tahun</option>
-						    <option value="5 TAHUN LEBIH">5 Tahun Lebih</option>
-						  </select>
+							<label style="width:100%;">(Contoh: HRD - PT Harda Esa Raksa - 5 Tahun,)</label>
+							<span>Gunakan <b>Koma(,)</b> Sebagai pemisah info pengalaman</span>
+	    					<textarea name="pengalaman_kerja" id="pengalaman_kerja" class="form-control textareaKerja"></textarea>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="foto">Upload Foto* :</label>
@@ -335,7 +311,7 @@
 				data.append('pengalaman_kerja', $('#pengalaman_kerja').val());
 				data.append('perusahaan_kerja', $('#perusahaan_kerja').val());
 				data.append('tahun_kerja', $('#tahun_kerja').val());
-				data.append('lama_pengalaman', $('#lama_pengalaman').val());
+				// data.append('lama_pengalaman', $('#lama_pengalaman').val());
 				data.append('foto', $('#foto')[0].files[0]);
 				data.append('ktp', $('#ktp')[0].files[0]);
 				data.append('ijazah', $('#ijazah')[0].files[0]);
@@ -447,25 +423,11 @@
 	        	$("input[name='kemampuan_komputer']").removeClass('error-field');
 	        }
 
-	        if($("input[name='pengalaman_kerja']").val()===""){
-	        	$("input[name='pengalaman_kerja']").addClass("error-field");
+	        if($("#pengalaman_kerja").val()===""){
+	        	$("#pengalaman_kerja").addClass("error-field");
 	            status = false;
 	        }else{
-	        	$("input[name='pengalaman_kerja']").removeClass('error-field');
-	        }
-
-	        if($("input[name='perusahaan_kerja']").val()===""){
-	        	$("input[name='perusahaan_kerja']").addClass("error-field");
-	            status = false;
-	        }else{
-	        	$("input[name='perusahaan_kerja']").removeClass('error-field');
-	        }
-
-	        if($("input[name='tahun_kerja']").val()===""){
-	        	$("input[name='tahun_kerja']").addClass("error-field");
-	            status = false;
-	        }else{
-	        	$("input[name='tahun_kerja']").removeClass('error-field');
+	        	$("#pengalaman_kerja").removeClass('error-field');
 	        }
 
 	        if($("#promosiDiri").val()===""){
@@ -543,14 +505,14 @@
 	        	$("#pendidikan_terakhir").removeClass("error-field");
 	        }
 
-	        var dd6 = document.getElementById("lama_pengalaman");
- 			var selectedValue5 = dd5.options[dd5.selectedIndex].value;
-	        if (selectedValue5=="") {
-	        	$("#lama_pengalaman").addClass("error-field");
-	        	status = false;
-	        } else {
-	        	$("#lama_pengalaman").removeClass("error-field");
-	        }
+	   //      var dd6 = document.getElementById("lama_pengalaman");
+ 			// var selectedValue5 = dd5.options[dd5.selectedIndex].value;
+	   //      if (selectedValue5=="") {
+	   //      	$("#lama_pengalaman").addClass("error-field");
+	   //      	status = false;
+	   //      } else {
+	   //      	$("#lama_pengalaman").removeClass("error-field");
+	   //      }
 
 	        if($("input[name='jenis_kelamin']").is(':checked')=="") { 
 	        	$('.radio').addClass("error-field");

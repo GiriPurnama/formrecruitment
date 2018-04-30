@@ -41,6 +41,8 @@ include "../config/koneksi.php";
         }
       }
 
+      $ndata = preg_replace("/\,/", "<br/>", $pengalaman_kerja);  
+
       $warga_negara = $warga_negara ?: '-';
       $no_sim = $no_sim ?: '-';
       $telepon = $telepon ?: '-';
@@ -165,23 +167,9 @@ $html = '
 	    	<tr>
 	    		<td style="width:50%";>Posisi</td>
 	    		<td style="width:5%";>:</td>
-	    		<td style="width:100%";>'.$pengalaman_kerja.'</td>
+	    		<td style="width:100%";>'.$ndata.'</td>
 	    	</tr>
-	    	<tr>
-	    		<td style="width:50%";>Perusahaan</td>
-	    		<td style="width:5%";>:</td>
-	    		<td style="width:100%";>'.$perusahaan_kerja.'</td>
-	    	</tr>
-	    	<tr>
-	    		<td style="width:50%";>Tahun Masuk</td>
-	    		<td style="width:5%";>:</td>
-	    		<td style="width:100%";>'.$tahun_kerja.'</td>
-	    	</tr>
-	    	<tr>
-	    		<td style="width:50%";>Lama Pengalaman</td>
-	    		<td style="width:5%";>:</td>
-	    		<td style="width:100%";>'.$lama_pengalaman.'</td>
-	    	</tr>
+	    	
 		</tbody>
 	</table>
 	<div style="padding-top:100px;">

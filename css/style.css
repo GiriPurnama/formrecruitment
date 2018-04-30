@@ -39,7 +39,7 @@ input[type=number]::-webkit-outer-spin-button {
 	width: 260px;
     height: 100px;
 }
-input[type="text"], input[type="email"], input[type="number"], select.form-control.opacity0, .form-control.textareaSekarang, .form-control.textareaDomisili{
+input[type="text"], input[type="email"], input[type="number"], select.form-control.opacity0, .form-control.textareaKerja, .form-control.textareaSekarang, .form-control.textareaDomisili{
     background: transparent;
     border-bottom: 1px solid #000;
     border-top: 0px;

@@ -309,8 +309,8 @@
 				data.append('bahasa_asing', $("input[name='bahasa_asing']:checked").val());
 				data.append('riwayat_penyakit', $('#riwayat').val());
 				data.append('pengalaman_kerja', $('#pengalaman_kerja').val());
-				data.append('perusahaan_kerja', $('#perusahaan_kerja').val());
-				data.append('tahun_kerja', $('#tahun_kerja').val());
+				// data.append('perusahaan_kerja', $('#perusahaan_kerja').val());
+				// data.append('tahun_kerja', $('#tahun_kerja').val());
 				// data.append('lama_pengalaman', $('#lama_pengalaman').val());
 				data.append('foto', $('#foto')[0].files[0]);
 				data.append('ktp', $('#ktp')[0].files[0]);

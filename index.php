@@ -216,10 +216,9 @@
 			</div>
 		</div>
 		<div class="col-md-6 float-right">
-			<p class="address-footer right"> ILP Building 3rd Floor Suite 15 Pasar
-			Minggu Raya No. 39a Pancoran,</p>
+			<p class="address-footer right"> Gedung ILP Lantai 3 Ruang 15 Jalan Raya Pasar Minggu No. 39a,</p>
 			<p class="address-footer right">
-			South Jakarta 12780 
+			Pancoran, Jakarta Selatan 12780 
 			</p>
 		</div>
 	</footer>

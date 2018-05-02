@@ -63,14 +63,23 @@ $html = '
 	    		<td style="width:100%";>'.$posisi_rekomendasi.'</td>
 	    	</tr>
 	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
 	    		<td style="width:50%";>Nama Lengkap</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$nama_lengkap.'</td>
 	    	</tr>
 	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
 	    		<td style="width:50%";>Warga Negara</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$warga_negara.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Tempat Lahir</td>
@@ -83,9 +92,15 @@ $html = '
 	    		<td style="width:100%";>'.$tanggal_lahir.'</td>
 	    	</tr>
 	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
 	    		<td style="width:50%";>Agama</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$agama.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Jenis Kelamin</td>
@@ -93,9 +108,15 @@ $html = '
 	    		<td style="width:100%";>'.$jenis_kelamin.'</td>
 	    	</tr>
 	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
 	    		<td style="width:50%";>Tinggi/Berat</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$tinggi_badan.'/'.$berat_badan.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>No KTP</td>
@@ -103,9 +124,15 @@ $html = '
 	    		<td style="width:100%";>'.$no_ktp.'</td>
 	    	</tr>
 	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
 	    		<td style="width:50%";>No SIM</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$no_sim.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Status Sipil</td>
@@ -113,9 +140,15 @@ $html = '
 	    		<td style="width:100%";>'.$status_sipil.'</td>
 	    	</tr>
 	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
 	    		<td style="width:50%";>Alamat Email</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$alamat_email.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Alamat Sekarang</td>
@@ -123,9 +156,15 @@ $html = '
 	    		<td style="width:100%";>'.$alamat_sekarang.'</td>
 	    	</tr>
 	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
 	    		<td style="width:50%";>No Handphone</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$no_handphone.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Telepon</td>
@@ -133,9 +172,15 @@ $html = '
 	    		<td style="width:100%";>'.$telepon.'</td>
 	    	</tr>
 	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
 	    		<td style="width:50%";>Pendidikan Terakhir</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$pendidikan_terakhir.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Kemampuan Dimiliki</td>
@@ -143,9 +188,15 @@ $html = '
 	    		<td style="width:100%";>'.$kemampuan_komputer.'</td>
 	    	</tr>
 	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
 	    		<td style="width:50%";>Bahasa Asing</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$bahasa_asing.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
 	    	</tr>
 	    	<tr>
 	    		<td style="width:50%";>Riwayat Penyakit</td>
@@ -165,8 +216,6 @@ $html = '
 	    		<td style="width:50%; font-weight:bold;">PENGALAMAN KERJA</td>
 	    	</tr>
 	    	<tr>
-	    		<td style="width:50%";>Posisi</td>
-	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$ndata.'</td>
 	    	</tr>
 	    	
@@ -182,10 +231,10 @@ $html = '
 
 $header = '<img src="../image/logoPng_harda.png" style="height:120px; margin-right:50%;" >';
 $footer = '<div>
-				ILP Building 3rd Floor Suite 15 Pasar Minggu Raya No. 39a Pancoran, South Jakarta 12780
+				Gedung ILP Lantai 3 Ruang 15 Jalan Raya Pasar Minggu No. 39a Pancoran, Jakarta Selatan 12780
 		   </div>
 		   <div>
-		   		Telephone: (021) 7988154  Fax: (021) 79170718  Email: info@pthardaesaraksa.com 
+		   		Telepon: (021) 7988154  Fax: (021) 79170718  Email: info@pthardaesaraksa.com 
 		   </div>
 		   ';
 
@@ -206,7 +255,7 @@ $mpdf->WriteHTML($html);
  
  
 //save the file put which location you need folder/filname
-$mpdf->Output("pelamar-".$nama_lengkap."-".$posisi.".pdf", 'D');
+$mpdf->Output("pelamar-".$nama_lengkap."-".$posisi.".pdf", 'F');
  
  
 //out put in browser below output function

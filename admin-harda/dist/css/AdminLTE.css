@@ -1711,6 +1711,7 @@ a:focus {
   display: block;
   padding: 10px;
   position: relative;
+  margin-bottom: 30px;
 }
 .box-header.with-border {
   border-bottom: 1px solid #f4f4f4;

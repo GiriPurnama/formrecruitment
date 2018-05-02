@@ -46,6 +46,7 @@
               <table class="table table-bordered table-hover" id="table-user">
               <thead>
                 <tr>
+                  <td>No</td>
                   <th>Posisi</th>
                   <th>Refrensi</th>
                   <th>Nama Lengkap</th>
@@ -62,6 +63,7 @@
               </thead>
               <tbody>
                 <?php
+                    $no = 1;
                     $pelamar = mysqli_query($db, "SELECT * FROM recruitment");
                     // $hitungDulu = mysqli_num_rows($pelamar);
                     while ($row = mysqli_fetch_assoc($pelamar)) {
@@ -73,6 +75,7 @@
                     $expire = strtotime($startdate. '+1 days');                              
                 ?>
                 <tr>
+                  <td><?php echo $no ?></td>
                   <td><?php echo $row['posisi']; ?></td>
                   <td><?php echo $row['refrensi']; ?></td>
                   <td><?php echo $row['nama_lengkap'];?></td>
@@ -100,7 +103,8 @@
                     <!-- <a href=""><span class="action-icon"><i class="fa fa-eye"></i></span></a> -->
                   </td>
                 </tr>
-                <?php } ?>
+
+                <?php $no++; } ?>
               </tbody>
               </table>
             </div>

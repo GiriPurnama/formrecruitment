@@ -24,6 +24,9 @@
             </div>
 
 				<div class="formUser">
+					<div class="col-md-12" style="margin-bottom:30px;">
+						<span>Tanda <b>(*) Wajib Diisi</b></span>
+					</div>
 					<form id="formPelamar" method="post"  enctype="multipart/form-data">
 						<div class="form-group col-md-6">
 							<label for="Posisi">Posisi yang Dilamar* :</label>
@@ -556,7 +559,7 @@
 
 			                var size = fuData.files[0].size;
 
-			                if(size > 1048576){
+			                if(size > 5242880){
 			                    alert("Ukuran FOTO tidak boleh lebih 1 MB");
 			                    $("#foto").addClass("error-field-file");
 			                    return;
@@ -601,7 +604,7 @@
 
 			                var size = fuData.files[0].size;
 
-			                if(size > 1048576){
+			                if(size > 5242880){
 			                    alert("Ukuran KTP tidak boleh lebih 1 MB");
 			                    $("#ktp").addClass("error-field-file");
 			                    return;
@@ -646,7 +649,7 @@
 
 			                var size = fuData.files[0].size;
 
-			                if(size > 1048576){
+			                if(size > 5242880){
 			                    alert("Ukuran ijazah tidak boleh lebih 1 MB");
 			                    $("#ijazah").addClass("error-field-file");
 			                    return;

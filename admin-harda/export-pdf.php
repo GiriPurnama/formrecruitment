@@ -255,7 +255,7 @@ $mpdf->WriteHTML($html);
  
  
 //save the file put which location you need folder/filname
-$mpdf->Output("pelamar-".$nama_lengkap."-".$posisi.".pdf", 'F');
+$mpdf->Output("pelamar-".$nama_lengkap."-".$posisi."-ID:".$id.".pdf", 'D');
  
  
 //out put in browser below output function

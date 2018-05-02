@@ -194,13 +194,13 @@
                     <span class="field-user"><?php echo $post_date ?></span>
                 </div> 
              
-              <div class="col-md-12 text-center">
-                <div class="col-md-6">
-                    <img class="img-user-width" src="<?php echo $ktp; ?>">
-                </div>
-                <div class="col-md-6">
-                    <img class="img-user-width" src="<?php echo $ijazah; ?>">
-                </div>
+            </div>
+            <div class="col-md-12 text-center">
+              <div class="col-md-6">
+                  <img class="img-user-width" src="<?php echo $ktp; ?>">
+              </div>
+              <div class="col-md-6">
+                  <img class="img-user-width" src="<?php echo $ijazah; ?>">
               </div>
             </div>
             <!-- /.box-header -->

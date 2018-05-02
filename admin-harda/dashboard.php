@@ -52,14 +52,14 @@
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <?php  
-            $pendaftar_interview = mysqli_query($db, "SELECT * FROM recruitment WHERE status_pelamar = 'interview'");
+            $pendaftar_interview = mysqli_query($db, "SELECT * FROM recruitment WHERE status_pelamar = 'DISARANKAN'");
             $jum_interview = mysqli_num_rows($pendaftar_interview);
           ?>
-          <div class="small-box bg-yellow">
+          <div class="small-box bg-green">
             <div class="inner">
               <h3><?php echo $jum_interview ?></h3>
 
-              <p>Jumlah Interview</p>
+              <p>Jumlah Disarankan</p>
             </div>
             <div class="icon">
               <i class="ion ion-information-circled"></i>
@@ -73,14 +73,14 @@
           <?php
             // $startdate = $jadwal_interview;
             $expire = strtotime('+1 days');  
-            $pendaftar_ditolak = mysqli_query($db, "SELECT * FROM recruitment WHERE status_pelamar = 'tidak interview'");
+            $pendaftar_ditolak = mysqli_query($db, "SELECT * FROM recruitment WHERE status_pelamar = 'REJECTED'");
             $jum_ditolak = mysqli_num_rows($pendaftar_ditolak);
           ?>
           <div class="small-box bg-red">
             <div class="inner">
               <h3><?php echo $jum_ditolak ?></h3>
 
-              <p>Jumlah Tidak Interview</p>
+              <p>Jumlah Rejected</p>
             </div>
             <div class="icon">
               <i class="ion ion-alert-circled"></i>

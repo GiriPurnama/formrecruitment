@@ -44,13 +44,14 @@
           $foto = $data['foto'];
           $ktp = $data['ktp'];
           $ijazah = $data['ijazah'];
-          $jadwal_interview = $data['jadwal_interview'];
+          $jadwal_disarankan = $data['jadwal_disarankan'];
           $post_date = $data['post_date'];
           $komentar = $data['komentar'];
           $status_pelamar = $data['status_pelamar'];
           $posisi_rekomendasi = $data['posisi_rekomendasi'];
           $berat_badan = $data['berat_badan'];
           $tinggi_badan = $data['tinggi_badan'];
+          $interview = $data['interview'];
         }
       }
 
@@ -88,15 +89,15 @@
               </div>
               <div class="col-md-12 mg-bottom">
                 <?php
-                  $startdate = $jadwal_interview;
+                  $startdate = $jadwal_disarankan;
                   $expire = strtotime($startdate.'+1 days');  
             
-                  if ($status_pelamar == "interview") {
-                        echo '<span class="label label-warning">Interview</span>';
-                    } elseif ($status_pelamar == "tidak interview"){
-                        echo '<span class="label label-danger">Tidak Interview</span>';
+                  if ($status_pelamar == "DISARANKAN") {
+                        echo '<span class="label label-success">Disarankan</span>';
+                    } elseif ($status_pelamar == "REJECTED"){
+                        echo '<span class="label label-danger">Rejected</span>';
                     } else {
-                        echo '<span class="label label-info">Belum Interview</span>';
+                        echo '<span class="label label-info">Belum disarankan</span>';
                     }
                 ?>
               </div>
@@ -224,8 +225,8 @@
                       <label>Status</label>
                       <select class="form-control" name="status_pelamar">
                         <option value="">-</option>
-                        <option value="interview">Interview</option>
-                        <option value="tidak interview">Tidak Interview</option>
+                        <option value="DISARANKAN">Disarankan</option>
+                        <option value="REJECTED">Rejected</option>
                        <!--  
                           <option value="lolos-seleksi">Lolos Seleksi</option>
                           <option value="gagal-seleksi">Gagal Seleksi</option> 
@@ -233,8 +234,12 @@
                       </select>
                     </div>
                     <div class="col-md-6 form-group mg20">
-                      <label>Rekomendasi</label>
+                      <label>Posisi Disarankan</label>
                       <input type="text" class="form-control" name="posisi_rekomendasi" value="<?php echo $posisi_rekomendasi; ?>">
+                    </div>
+                    <div class="col-md-6 form-group mg20">
+                      <label>Interviewer</label>
+                      <input type="text" class="form-control" name="interview" value="<?php echo $interview; ?>">
                     </div>
                 <div class="form-group col-md-12">
                   <input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Simpan">
@@ -295,12 +300,14 @@ if (isset($_POST['simpan'])) {
     $id             = $_POST['id'];
     $komentar       = $_POST['komentar'];
     $status_pelamar = $_POST['status_pelamar'];
-    $posisi_rekomendasi = $_POST['posisi_rekomendasi'];
+    $posisi_rekomendasi = strtoupper($_POST['posisi_rekomendasi']);
+    $interview = strtoupper($_POST['interview']);
 
     // perintah query untuk mengubah data pada tabel is_siswa
     $query = mysqli_query($db, "UPDATE recruitment SET komentar = '$komentar',
                             status_pelamar  = '$status_pelamar',
-                            posisi_rekomendasi = '$posisi_rekomendasi'
+                            posisi_rekomendasi = '$posisi_rekomendasi',
+                            interview = '$interview'
                             WHERE id        = '$id'");   
 
     // cek query

@@ -11,7 +11,7 @@ header("Content-Disposition: attachment; filename=pelamar-exportxls-".date("d-m-
 // memanggil query dari database
 // $refrensi = $_GET['refrensi'];                     
   $sqlshow = mysqli_query($db, "SELECT * FROM recruitment");
-  $nameSql = mysqli_query($db, "SELECT refrensi, YEARWEEK(post_date) AS tahun_minggu, COUNT(*) AS jumlah FROM recruitment GROUP BY refrensi");
+  $nameSql = mysqli_query($db, "SELECT refrensi, MONTHNAME(post_date) AS month, YEARWEEK(post_date) AS tahun_minggu, COUNT(*) AS jumlah FROM recruitment GROUP BY refrensi, MONTHNAME(post_date)");
   // $nameSql = mysqli_query($db, "SELECT refrensi, COUNT(*) as jumlah FROM recruitment GROUP BY refrensi");
   $jum_pendaftar = mysqli_num_rows($sqlshow);
   $jum_individu  = mysqli_num_rows($nameSql); 
@@ -30,6 +30,7 @@ header("Content-Disposition: attachment; filename=pelamar-exportxls-".date("d-m-
              <th>No</ths>
              <th>Posisi</th>
              <th>Refrensi</th>
+             <th>Interviewer</th>
              <th>Nama Lengkap</th>
              <th>Warga Negara</th>
              <th>Tempat Lahir</th>
@@ -48,7 +49,9 @@ header("Content-Disposition: attachment; filename=pelamar-exportxls-".date("d-m-
              <th>Bahasa Asing</th>
              <th>Riwayat Penyakit</th>
              <th>Pengalaman Kerja</th>
-             <th>Lama Pengalaman</th>
+             <!-- <th>Lama Pengalaman</th> -->
+             <th>Komentar</th>
+             <th>Status Pengalaman</th>
             </tr>
           </thead>
           <tbody>            
@@ -57,11 +60,16 @@ header("Content-Disposition: attachment; filename=pelamar-exportxls-".date("d-m-
         
       $nomor=1;
       while($rowshow = mysqli_fetch_assoc($sqlshow)){                     
-          
+        $posisi_rekomendasi = $rowshow['posisi_rekomendasi'];
+        $posisi = $rowshow['posisi']; 
+        $posisi_rekomendasi = $posisi_rekomendasi ?: $posisi;
+        $komentar = strip_tags($rowshow['komentar'], '<p><a>');  
+
           echo '<tr>';
             echo '<td>'.$nomor.'</td>';
-            echo '<td>'.$rowshow['posisi'].'</td>';
+            echo '<td>'.$posisi_rekomendasi.'</td>';
             echo '<td>'.$rowshow['refrensi'].'</td>';
+            echo '<td>'.$rowshow['interview'].'</td>';
             echo '<td>'.$rowshow['nama_lengkap'].'</td>';
             echo '<td>'.$rowshow['warga_negara'].'</td>';
             echo '<td>'.$rowshow['tempat_lahir'].'</td>';
@@ -80,15 +88,24 @@ header("Content-Disposition: attachment; filename=pelamar-exportxls-".date("d-m-
             echo '<td>'.$rowshow['bahasa_asing'].'</td>';
             echo '<td>'.$rowshow['riwayat_penyakit'].'</td>';
             echo '<td>'.$rowshow['pengalaman_kerja'].'</td>';
-            echo '<td>'.$rowshow['lama_pengalaman'].'</td>';
+            // echo '<td>'.$rowshow['lama_pengalaman'].'</td>';
+            echo '<td>'.$komentar.'</td>';
+            echo '<td>'.$rowshow['status_pelamar'].'</td>';
           echo '</tr>';
           $nomor++;
       }
 
           while($rowname = mysqli_fetch_assoc($nameSql)){          
+            echo "<tr>";
+              echo "<td><b>Referensi</b></td>";
+              // echo "<td><b>Tahun Minggu</b></td>";
+              echo "<td><b>Bulan</b></td>";
+              echo "<td><b>Jumlah</b></td>";
+            echo "</tr>";
             echo '<tr>';
               echo '<td>'.$rowname['refrensi'].'</td>';
-                echo '<td>'.$rowname['tahun_minggu'].'</td>';
+              // echo '<td>'.$rowname['tahun_minggu'].'</td>';
+              echo '<td>'.$rowname['month'].'</td>';
               echo '<td>'.$rowname['jumlah'].'</td>';
             echo '</tr>';                       
           }

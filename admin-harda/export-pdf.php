@@ -38,6 +38,7 @@ include "../config/koneksi.php";
           $tinggi_badan = $data['tinggi_badan'];
           $berat_badan = $data['berat_badan'];
           $posisi_rekomendasi = $data['posisi_rekomendasi'];
+          $promosi_diri = $data['promosi_diri'];
         }
       }
 
@@ -202,6 +203,14 @@ $html = '
 	    		<td style="width:50%";>Riwayat Penyakit</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$riwayat_penyakit.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
+	    		<td style="width:50%";>Promosi Diri</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$promosi_diri.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td></td>

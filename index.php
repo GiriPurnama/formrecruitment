@@ -33,7 +33,7 @@
     						<input type="text" class="form-control" id="position" name="posisi" required>
 						</div>
 						<div class="form-group col-md-6 ghost">
-						  <label for="Refrensi">Refrensi* :</label>
+						  <label for="Refrensi">Referensi* :</label>
 						  <select class="form-control opacity0" id="refrensi" name="refrensi">
 						  	<option value="">-</option>
 						    <option value="ANGGA">Angga</option>

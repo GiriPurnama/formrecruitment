@@ -88,10 +88,10 @@
                   <th><?php echo $row['lama_pengalaman']; ?></th>
                   <td>
                       <?php 
-                        if ($status_pelamar == "interview") {
-                            echo '<span class="label label-warning">Interview</span>';
-                        } elseif ($status_pelamar == "tidak interview"){
-                            echo '<span class="label label-danger">Tidak Interview</span>';
+                        if ($status_pelamar == "DISARANKAN") {
+                            echo '<span class="label label-success">Disarankan</span>';
+                        } elseif ($status_pelamar == "REJECTED"){
+                            echo '<span class="label label-danger">Rejected</span>';
                         } else {
                             echo '<span class="label label-info">Belum Interview</span>';
                         }

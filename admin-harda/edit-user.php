@@ -186,10 +186,6 @@
                     <span class="label-user">Pengalaman Kerja</span>
                     <span class="field-user"><?php echo $ndata; ?></span>
                 </div>
-                <!-- <div class="col-md-6 pad-label">
-                    <span class="label-user">Lama Pengalaman</span>
-                    <span class="field-user"><?php echo $lama_pengalaman; ?></span>
-                </div> -->
                 <div class="col-md-6 pad-label">
                     <span class="label-user">Tanggal Post</span>
                     <span class="field-user"><?php echo $post_date ?></span>
@@ -227,10 +223,6 @@
                         <option value="">-</option>
                         <option value="DISARANKAN">Disarankan</option>
                         <option value="REJECTED">Rejected</option>
-                       <!--  
-                          <option value="lolos-seleksi">Lolos Seleksi</option>
-                          <option value="gagal-seleksi">Gagal Seleksi</option> 
-                        -->
                       </select>
                     </div>
                     <div class="col-md-6 form-group mg20">

@@ -11,7 +11,7 @@ header("Content-Disposition: attachment; filename=pelamar-exportxls-".date("d-m-
 // memanggil query dari database
 // $refrensi = $_GET['refrensi'];                     
   $sqlshow = mysqli_query($db, "SELECT * FROM recruitment");
-  $nameSql = mysqli_query($db, "SELECT refrensi, MONTHNAME(post_date) AS month, YEARWEEK(post_date) AS tahun_minggu, COUNT(*) AS jumlah FROM recruitment GROUP BY refrensi, MONTHNAME(post_date)");
+  $nameSql = mysqli_query($db, "SELECT refrensi, MONTHNAME(post_date) AS month, YEARWEEK(post_date) AS tahun_minggu, COUNT(*) AS jumlah FROM recruitment GROUP BY refrensi");
   // $nameSql = mysqli_query($db, "SELECT refrensi, COUNT(*) as jumlah FROM recruitment GROUP BY refrensi");
   $jum_pendaftar = mysqli_num_rows($sqlshow);
   $jum_individu  = mysqli_num_rows($nameSql); 
@@ -95,13 +95,13 @@ header("Content-Disposition: attachment; filename=pelamar-exportxls-".date("d-m-
           $nomor++;
       }
 
+          echo "<tr>";
+            echo "<td><b>Referensi</b></td>";
+            // echo "<td><b>Tahun Minggu</b></td>";
+            echo "<td><b>Bulan</b></td>";
+            echo "<td><b>Jumlah</b></td>";
+          echo "</tr>";
           while($rowname = mysqli_fetch_assoc($nameSql)){          
-            echo "<tr>";
-              echo "<td><b>Referensi</b></td>";
-              // echo "<td><b>Tahun Minggu</b></td>";
-              echo "<td><b>Bulan</b></td>";
-              echo "<td><b>Jumlah</b></td>";
-            echo "</tr>";
             echo '<tr>';
               echo '<td>'.$rowname['refrensi'].'</td>';
               // echo '<td>'.$rowname['tahun_minggu'].'</td>';

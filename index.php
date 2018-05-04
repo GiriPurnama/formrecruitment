@@ -175,19 +175,19 @@
 	    					<textarea name="pengalaman_kerja" id="pengalaman_kerja" class="form-control textareaKerja"></textarea>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="foto">Upload Foto* :</label>
+							<label for="foto">Upload Foto :</label>
     						<input type="file" accept="image/*" class="form-control" id="foto" name="foto" required>
-    						<span class="small-font">Ukuran Foto Maksimal <b>1 MB</b>*</span>
+    						<!-- <span class="small-font">Ukuran Foto Maksimal <b>1 MB</b>*</span> -->
 						</div>
 						<div class="form-group col-md-6">
-							<label for="ktp">Upload KTP* :</label>
+							<label for="ktp">Upload KTP :</label>
     						<input type="file" accept="image/*" class="form-control" id="ktp" name="ktp" required>
-							<span class="small-font">Ukuran KTP Maksimal <b>1 MB</b>*</span>
+							<!-- <span class="small-font">Ukuran KTP Maksimal <b>1 MB</b>*</span> -->
 						</div>
 						<div class="form-group col-md-6">
-							<label for="ijazah">Upload Ijazah* :</label>
+							<label for="ijazah">Upload Ijazah :</label>
     						<input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah" required>
-							<span class="small-font">Ukuran Ijazah Maksimal <b>1 MB</b>*</span>
+							<!-- <span class="small-font">Ukuran Ijazah Maksimal <b>1 MB</b>*</span> -->
 						</div>
 						<!-- <div class="form-group col-md-6">
 							<label for="jadwal_interview">Jadwal Interview* :</label>
@@ -211,12 +211,12 @@
 			<p class="address-footer left">	
 				<strong>Copyright &copy; 2018 <a href="http://www.pthardaesaraksa.com" target="_BLANK">PT Harda Esa Raksa</a>.</strong> All rights
 			</p>
-			<div class="text-left">
+			<!-- <div class="text-left">
                 <a href=""><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
 	            <a href=""><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
 	            <a href=""><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
 	            <a href=""><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-			</div>
+			</div> -->
 		</div>
 		<div class="col-md-6 float-right">
 			<p class="address-footer right"> Gedung ILP Lantai 3 Ruang 15 Jalan Raya Pasar Minggu No. 39a,</p>
@@ -311,9 +311,6 @@
 				data.append('bahasa_asing', $("input[name='bahasa_asing']:checked").val());
 				data.append('riwayat_penyakit', $('#riwayat').val());
 				data.append('pengalaman_kerja', $('#pengalaman_kerja').val());
-				// data.append('perusahaan_kerja', $('#perusahaan_kerja').val());
-				// data.append('tahun_kerja', $('#tahun_kerja').val());
-				// data.append('lama_pengalaman', $('#lama_pengalaman').val());
 				data.append('foto', $('#foto')[0].files[0]);
 				data.append('ktp', $('#ktp')[0].files[0]);
 				data.append('ijazah', $('#ijazah')[0].files[0]);
@@ -507,15 +504,6 @@
 	        	$("#pendidikan_terakhir").removeClass("error-field");
 	        }
 
-	   //      var dd6 = document.getElementById("lama_pengalaman");
- 			// var selectedValue5 = dd5.options[dd5.selectedIndex].value;
-	   //      if (selectedValue5=="") {
-	   //      	$("#lama_pengalaman").addClass("error-field");
-	   //      	status = false;
-	   //      } else {
-	   //      	$("#lama_pengalaman").removeClass("error-field");
-	   //      }
-
 	        if($("input[name='jenis_kelamin']").is(':checked')=="") { 
 	        	$('.radio').addClass("error-field");
 	        	status = false;
@@ -529,10 +517,6 @@
 	        } else {
 	        	$('.radio-2').removeClass("error-field");
 	        }
-
-	        ValidateFotoUpload();
-	        ValidateKtpUpload();
-	        ValidateIjazahUpload();
 
 			
 	        return status;

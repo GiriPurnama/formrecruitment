@@ -56,7 +56,7 @@
                   <!-- <th>No Handphone</th> -->
                   <th>Pendidikan Terakhir</th>
                   <th>Pengalaman Kerja</th>
-                  <th>Lama Pengalaman</th>
+                  <!-- <th>Lama Pengalaman</th> -->
                   <th>Status Pelamar</th>
                   <th>Aksi</th>
                 </tr>
@@ -85,7 +85,7 @@
                   <!-- <th><?php echo $row['no_handphone']; ?></th> -->
                   <th><?php echo $row['pendidikan_terakhir']; ?></th>
                   <th><?php echo $row['pengalaman_kerja']; ?></th>
-                  <th><?php echo $row['lama_pengalaman']; ?></th>
+                  <!-- <th><?php echo $row['lama_pengalaman']; ?></th> -->
                   <td>
                       <?php 
                         if ($status_pelamar == "DISARANKAN") {

@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
     <link rel="stylesheet" href="dist/css/login.css">

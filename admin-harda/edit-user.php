@@ -32,7 +32,7 @@
           $status_sipil = $data['status_sipil'];
           $alamat_email = $data['alamat_email'];
           $alamat_sekarang = $data['alamat_sekarang'];
-          $alamat_domisili = $data['alamat_domisili'];
+          // $alamat_domisili = $data['alamat_domisili'];
           $no_handphone = $data['no_handphone'];
           $telepon     = $data['telepon'];
           $pendidikan_terakhir = $data['pendidikan_terakhir'];
@@ -44,7 +44,7 @@
           $foto = $data['foto'];
           $ktp = $data['ktp'];
           $ijazah = $data['ijazah'];
-          $jadwal_disarankan = $data['jadwal_disarankan'];
+          // $jadwal_disarankan = $data['jadwal_disarankan'];
           $post_date = $data['post_date'];
           $komentar = $data['komentar'];
           $status_pelamar = $data['status_pelamar'];
@@ -89,8 +89,7 @@
               </div>
               <div class="col-md-12 mg-bottom">
                 <?php
-                  $startdate = $jadwal_disarankan;
-                  $expire = strtotime($startdate.'+1 days');  
+                  
             
                   if ($status_pelamar == "DISARANKAN") {
                         echo '<span class="label label-success">Disarankan</span>';
@@ -236,15 +235,15 @@
 
                     <div class="form-group col-md-6 mg20">
                       <label for="foto">Upload Foto</label>
-                        <input type="file" accept="image/*" class="form-control" id="foto" name="foto">
+                        <input type="file" accept="image/*" class="form-control" id="foto" name="foto" value="<?php echo $foto; ?>">
                     </div>
                     <div class="form-group col-md-6 mg20">
                       <label for="ktp">Upload KTP</label>
-                        <input type="file" accept="image/*" class="form-control" id="ktp" name="ktp">
+                        <input type="file" accept="image/*" class="form-control" id="ktp" name="ktp" value="<?php echo $ktp; ?>">
                     </div>
                     <div class="form-group col-md-6 mg20">
                       <label for="ijazah">Upload Ijazah</label>
-                        <input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah">
+                        <input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah" value="<?php echo $ijazah; ?>">
                     </div>
 
                 <div class="form-group col-md-12">
@@ -309,17 +308,21 @@ if (isset($_POST['simpan'])) {
     $posisi_rekomendasi = strtoupper($_POST['posisi_rekomendasi']);
     $interview = strtoupper($_POST['interview']);
 
+    $allowed = array('jpg','png','jpeg');
 
+    $type = $_FILES['foto']['type'];
     $fileinfo=PATHINFO($_FILES["foto"]["name"]);
     $newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
     move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
     $location="../upload/" . $newFilename;
 
+    $type1 = $_FILES['ktp']['type'];
     $fileinfo2=PATHINFO($_FILES["ktp"]["name"]);
     $newFilename2=$fileinfo2['filename'] ."_". time() . "." . $fileinfo2['extension'];
     move_uploaded_file($_FILES["ktp"]["tmp_name"],"../upload/" . $newFilename2);
     $location2="../upload/" . $newFilename2;
 
+    $type2 = $_FILES['ijazah']['type'];
     $fileinfo3=PATHINFO($_FILES["ijazah"]["name"]);
     $newFilename3=$fileinfo3['filename'] ."_". time() . "." . $fileinfo3['extension'];
     move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);

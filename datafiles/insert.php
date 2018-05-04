@@ -50,16 +50,19 @@
 		$berat_badan = mysqli_real_escape_string($db, trim(strtoupper($_POST['berat_badan'])));
 		$kuliah = strtoupper($_POST['kuliah']);
 
+		$type = $_FILES['foto']['type'];
 		$fileinfo=PATHINFO($_FILES["foto"]["name"]);
 		$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
 		move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
 		$location="../upload/" . $newFilename;
 
+		$type1 = $_FILES['ktp']['type'];
 		$fileinfo2=PATHINFO($_FILES["ktp"]["name"]);
 		$newFilename2=$fileinfo2['filename'] ."_". time() . "." . $fileinfo2['extension'];
 		move_uploaded_file($_FILES["ktp"]["tmp_name"],"../upload/" . $newFilename2);
 		$location2="../upload/" . $newFilename2;
 
+		$type2 = $_FILES['ijazah']['type'];
 		$fileinfo3=PATHINFO($_FILES["ijazah"]["name"]);
 		$newFilename3=$fileinfo3['filename'] ."_". time() . "." . $fileinfo3['extension'];
 		move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);

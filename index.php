@@ -12,6 +12,9 @@
 	<div class="logoHarda">
 		<marquee><img src="image/logoPng_harda.png"></marquee>
 	</div>
+	<div id="loader">
+		<img class="img-responsive" src="image/loading.gif">
+	</div>
 	<div class="container">
 		<div class="row">
 			
@@ -21,6 +24,12 @@
 
 			<div id="labelSuccess" class='alert alert-success alert-dismissible' role='alert'>
 	            <strong><i class='glyphicon glyphicon-ok-circle'></i> Terimakasih </strong> Data berhasil disimpan.
+            </div>
+
+            <div id="labelError" class='alert alert-danger alert-dismissible' role='alert'>
+	            <ul id="errorCard">
+	            	
+	            </ul>
             </div>
 
 				<div class="formUser">
@@ -275,6 +284,8 @@
 	$( document ).ready(function() {
 		
 		$("#labelSuccess").hide();
+		$("#loader").hide();
+		$("#labelError").hide();
 
 		$("#tanggal_lahir").datepicker({
 			startView:'year'
@@ -284,9 +295,11 @@
     	});
 
 		$(document).on('click', '.btn-submit', function(){
+			
 
 			if (CheckValidasiPeserta() == true ) {
-
+				$("#loader").show();
+				$("#labelError").hide();
 			    var data = new FormData(this);
 				data.append('posisi', $('#position').val());
 				data.append('refrensi', $('[name="refrensi"]').val());
@@ -323,6 +336,7 @@
 					 contentType: false,
 					 processData: false,
 					 data : data,
+
 					 success: function(data){
 					    $("#labelSuccess").show();
 					    $("#labelSuccess").delay(3000).fadeOut('slow');
@@ -330,6 +344,7 @@
 					    $("html, body").animate({ scrollTop: 0 }, "slow");
 					    $('#refrensi').attr('name', 'refrensi');
 		        		$('#myInput').remove();
+		        		$("#loader").hide();
 					 }
 				});
 			} else {
@@ -351,110 +366,133 @@
 
 		function CheckValidasiPeserta(){
 	  		var status = true;
+	  		$("#labelError").show();
+	  		$("html, body").animate({ scrollTop: 0 }, "slow");
 
 	        if($("input[name='posisi']").val()===""){
 	        	$("input[name='posisi']").addClass("error-field");
+	            $('#errorCard').append('<li class="li-posisi">Posisi Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='posisi']").removeClass('error-field');
+	        	$(".li-posisi").remove();
 	        }
 	        
 	        if($("input[name='nama_lengkap']").val()===""){
 	        	$("input[name='nama_lengkap']").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-namaLengkap">Nama Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='nama_lengkap']").removeClass('error-field');
+	        	$(".li-namaLengkap").remove();	
 	        }
 
 	        if($("input[name='tempat_lahir']").val()===""){
 	        	$("input[name='tempat_lahir']").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-tempatLahir">Tempat Lahir Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='tempat_lahir']").removeClass('error-field');
+	        	$(".li-tempatLahir").remove();
 	        }
 
 	        if($("input[name='tanggal_lahir']").val()===""){
 	        	$("input[name='tanggal_lahir']").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-tanggalLahir">Tanggal lahir Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='tanggal_lahir']").removeClass('error-field');
+	        	$(".li-tanggalLahir").remove();
 	        }
 
 	        if($("input[name='no_ktp']").val()===""){
 	        	$("input[name='no_ktp']").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-ktp">KTP Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='no_ktp']").removeClass('error-field');
+	        	$(".li-ktp").remove();
 	        }
 
 	        if($("input[name='alamat_email']").val()===""){
 	        	$("input[name='alamat_email']").addClass("error-field");
+	            $('#errorCard').append('<li class="li-email">Email Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='alamat_email']").removeClass('error-field');
+	        	$(".li-email").remove();
 	        }
 
 	        if($(".textareaSekarang").val()===""){
 	        	$(".textareaSekarang").addClass("error-field");
+	            $('#errorCard').append('<li class="li-alamat">Alamat Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$(".textareaSekarang").removeClass('error-field');
-	        }
-
-	        if($(".textareaDomisili").val()===""){
-	        	$(".textareaDomisili").addClass("error-field");
-	            status = false;
-	        }else{
-	        	$(".textareaDomisili").removeClass('error-field');
+	        	$(".li-alamat").remove();
 	        }
 
 	        if($("input[name='no_handphone']").val()===""){
 	        	$("input[name='no_handphone']").addClass("error-field");
+	            $('#errorCard').append('<li class="li-hp">No HP Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='no_handphone']").removeClass('error-field');
+	        	$(".li-hp").remove();
 	        }
 
 	        if($("input[name='kemampuan_komputer']").val()===""){
 	        	$("input[name='kemampuan_komputer']").addClass("error-field");
+	            $('#errorCard').append('<li class="li-skill">Kemampuan dimiliki Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='kemampuan_komputer']").removeClass('error-field');
+	        	$(".li-skill").remove();
 	        }
 
 	        if($("#pengalaman_kerja").val()===""){
 	        	$("#pengalaman_kerja").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-pengalaman">Pengalaman Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("#pengalaman_kerja").removeClass('error-field');
+	        	$(".li-pengalaman").remove();
 	        }
 
 	        if($("#promosiDiri").val()===""){
 	        	$("#promosiDiri").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-promosi">Promosi Diri Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("#promosiDiri").removeClass('error-field');
+	        	$(".li-promosi").remove();
 	        }
 
 	        if($("input[name='tinggi_badan']").val()===""){
 	        	$("input[name='tinggi_badan']").addClass("error-field");
+	            $('#errorCard').append('<li class="li-tinggi">Tinggi Badan Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='tinggi_badan']").removeClass('error-field');
+	        	$(".li-tinggi").remove();
 	        }
 
 	        if($("input[name='berat_badan']").val()===""){
 	        	$("input[name='berat_badan']").addClass("error-field");
+	            $('#errorCard').append('<li class="li-berat">Berat Badan Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='berat_badan']").removeClass('error-field');
+	        	$(".li-berat").remove();
 	        }
 
 	        if($("input[name='refrensi']").val()===""){
 	        	$("input[name='refrensi']").addClass("error-field");
+	            $('#errorCard').append('<li class="li-refrensi">Referensi Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='refrensi']").removeClass('error-field');
+	       		$(".li-refrensi").remove();
 	        }
 
 
@@ -463,59 +501,63 @@
  			var selectedValue = ddl.options[ddl.selectedIndex].value;
 	        if (selectedValue=="") {
 	        	$("#refrensi").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-refrensi">Referensi Anda Masih Kosong</li>');
 	        	status = false;
 	        } else {
 	        	$("#refrensi").removeClass("error-field");
+	        	$(".li-refrensi").remove();
 	        }
 
 	        var dd2 = document.getElementById("agama");
  			var selectedValue2 = dd2.options[dd2.selectedIndex].value;
 	        if (selectedValue2=="") {
 	        	$("#agama").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-agama">Agama Anda Masih Kosong</li>');
 	        	status = false;
 	        } else {
 	        	$("#agama").removeClass("error-field");
-	        }
-
-	        var dd3 = document.getElementById("agama");
- 			var selectedValue3 = dd3.options[dd3.selectedIndex].value;
-	        if (selectedValue3=="") {
-	        	$("#agama").addClass("error-field");
-	        	status = false;
-	        } else {
-	        	$("#agama").removeClass("error-field");
+	        	$(".li-agama").remove();
 	        }
 
 	        var dd4 = document.getElementById("status_sipil");
  			var selectedValue4 = dd4.options[dd4.selectedIndex].value;
 	        if (selectedValue4=="") {
 	        	$("#status_sipil").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-statusSipil">Status Sipil Anda Masih Kosong</li>');
 	        	status = false;
 	        } else {
 	        	$("#status_sipil").removeClass("error-field");
+	        	$(".li-statusSipil").remove();
 	        }
 
 	        var dd5 = document.getElementById("pendidikan_terakhir");
  			var selectedValue5 = dd5.options[dd5.selectedIndex].value;
 	        if (selectedValue5=="") {
 	        	$("#pendidikan_terakhir").addClass("error-field");
+	        	$('#errorCard').append('<li class="li-pendidikan">Pendidikan Terakhir Anda Masih Kosong</li>');
 	        	status = false;
 	        } else {
 	        	$("#pendidikan_terakhir").removeClass("error-field");
+	        	$(".li-pendidikan").remove();
 	        }
+
 
 	        if($("input[name='jenis_kelamin']").is(':checked')=="") { 
 	        	$('.radio').addClass("error-field");
+	        	$('#errorCard').append('<li class="li-gender">Jenis Kelamin Anda Masih Kosong</li>');
 	        	status = false;
 	        } else {
 	        	$('.radio').removeClass("error-field");
+	        	$(".li-gender").remove();
 	        }
 
 	        if($("input[name='kuliah']").is(':checked')=="") { 
 	        	$('.radio-2').addClass("error-field");
+	        	$('#errorCard').append('<li class="li-kuliah">Kuliah Anda Masih Kosong</li>');
 	        	status = false;
 	        } else {
 	        	$('.radio-2').removeClass("error-field");
+	        	$(".li-kuliah").remove();
 	        }
 
 			

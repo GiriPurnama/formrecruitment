@@ -210,7 +210,7 @@
               </div>
             </div>
             <div class="box-body pad">
-              <form method="POST" action="">
+              <form method="POST" action="" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <div class="col-md-12">
                       <textarea id="editor1" name="komentar" rows="10" cols="80" placeholder="Komentar Anda">
@@ -233,6 +233,20 @@
                       <label>Interviewer</label>
                       <input type="text" class="form-control" name="interview" value="<?php echo $interview; ?>">
                     </div>
+
+                    <div class="form-group col-md-6 mg20">
+                      <label for="foto">Upload Foto</label>
+                        <input type="file" accept="image/*" class="form-control" id="foto" name="foto">
+                    </div>
+                    <div class="form-group col-md-6 mg20">
+                      <label for="ktp">Upload KTP</label>
+                        <input type="file" accept="image/*" class="form-control" id="ktp" name="ktp">
+                    </div>
+                    <div class="form-group col-md-6 mg20">
+                      <label for="ijazah">Upload Ijazah</label>
+                        <input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah">
+                    </div>
+
                 <div class="form-group col-md-12">
                   <input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Simpan">
                   <input type="submit" class="btn btn-warning btn-submit" name="export-pdf" id="pdf" value="Export PDF" href="javascript:void(0);" onclick="window.open('export-pdf.php?id=<?php echo $id; ?>')">
@@ -295,11 +309,30 @@ if (isset($_POST['simpan'])) {
     $posisi_rekomendasi = strtoupper($_POST['posisi_rekomendasi']);
     $interview = strtoupper($_POST['interview']);
 
+
+    $fileinfo=PATHINFO($_FILES["foto"]["name"]);
+    $newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
+    move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
+    $location="../upload/" . $newFilename;
+
+    $fileinfo2=PATHINFO($_FILES["ktp"]["name"]);
+    $newFilename2=$fileinfo2['filename'] ."_". time() . "." . $fileinfo2['extension'];
+    move_uploaded_file($_FILES["ktp"]["tmp_name"],"../upload/" . $newFilename2);
+    $location2="../upload/" . $newFilename2;
+
+    $fileinfo3=PATHINFO($_FILES["ijazah"]["name"]);
+    $newFilename3=$fileinfo3['filename'] ."_". time() . "." . $fileinfo3['extension'];
+    move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);
+    $location3="../upload/" . $newFilename3;
+
     // perintah query untuk mengubah data pada tabel is_siswa
     $query = mysqli_query($db, "UPDATE recruitment SET komentar = '$komentar',
                             status_pelamar  = '$status_pelamar',
                             posisi_rekomendasi = '$posisi_rekomendasi',
-                            interview = '$interview'
+                            interview = '$interview',
+                            foto = '$location',
+                            ktp = '$location2',
+                            ijazah = '$location3'
                             WHERE id        = '$id'");   
 
     // cek query

@@ -560,6 +560,10 @@
 	        	$(".li-kuliah").remove();
 	        }
 
+	        ValidateFotoUpload();
+	        ValidateKtpUpload();
+	        ValidateIjazahUpload();
+
 			
 	        return status;
         
@@ -570,12 +574,7 @@
 			var fuData = document.getElementById('foto');
 			var FileUploadPath = fuData.value;
 
-			if (FileUploadPath == '') {
-			    alert("Foto anda belum di upload");
-			    $("#foto").addClass("error-field-file");
-
-			} else {
-				$("#foto").removeClass("error-field-file");
+				// $("#foto").removeClass("error-field-file");
 			    var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
 
 			    if (Extension == "gif" || Extension == "png" || Extension == "bmp"
@@ -585,29 +584,29 @@
 
 			                var size = fuData.files[0].size;
 
-			                if(size > 5242880){
-			                    alert("Ukuran FOTO tidak boleh lebih 1 MB");
-			                    $("#foto").addClass("error-field-file");
-			                    return;
-			                }else{
-			                	$("#foto").removeClass("error-field-file");
-			                    var reader = new FileReader();
+			                // if(size > 5242880){
+			                //     alert("Ukuran FOTO tidak boleh lebih 1 MB");
+			                //     $("#foto").addClass("error-field-file");
+			                //     return;
+			                // }else{
+			                // 	$("#foto").removeClass("error-field-file");
+			                //     var reader = new FileReader();
 
-			                    reader.onload = function(e) {
-			                        $('#blah').attr('src', e.target.result);
-			                    }
+			                //     reader.onload = function(e) {
+			                //         $('#blah').attr('src', e.target.result);
+			                //     }
 
-			                    reader.readAsDataURL(fuData.files[0]);
-			                }
+			                //     reader.readAsDataURL(fuData.files[0]);
+			                // }
 			            }
 
 			    } 
 
 			else {
-					$("#foto").addClass("error-field-file");
+					// $("#foto").addClass("error-field-file");
 			        alert("Format Foto hanya boleh GIF, PNG, JPG, JPEG and BMP. ");
 			    }
-			}
+			
 		}
 
 		function ValidateKtpUpload() {
@@ -615,12 +614,7 @@
 			var fuData = document.getElementById('ktp');
 			var FileUploadPath = fuData.value;
 
-			if (FileUploadPath == '') {
-			    alert("ktp anda belum di upload");
-			    $("#ktp").addClass("error-field-file");
-
-			} else {
-				$("#ktp").removeClass("error-field-file");
+				// $("#ktp").removeClass("error-field-file");
 			    var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
 
 			    if (Extension == "gif" || Extension == "png" || Extension == "bmp"
@@ -630,29 +624,29 @@
 
 			                var size = fuData.files[0].size;
 
-			                if(size > 5242880){
-			                    alert("Ukuran KTP tidak boleh lebih 1 MB");
-			                    $("#ktp").addClass("error-field-file");
-			                    return;
-			                }else{
-			                	$("#ktp").removeClass("error-field-file");
-			                    var reader = new FileReader();
+			                // if(size > 5242880){
+			                //     alert("Ukuran KTP tidak boleh lebih 1 MB");
+			                //     $("#ktp").addClass("error-field-file");
+			                //     return;
+			                // }else{
+			                // 	$("#ktp").removeClass("error-field-file");
+			                //     var reader = new FileReader();
 
-			                    reader.onload = function(e) {
-			                        $('#blah').attr('src', e.target.result);
-			                    }
+			                //     reader.onload = function(e) {
+			                //         $('#blah').attr('src', e.target.result);
+			                //     }
 
-			                    reader.readAsDataURL(fuData.files[0]);
-			                }
+			                //     reader.readAsDataURL(fuData.files[0]);
+			                // }
 			            }
 
 			    } 
 
 			else {
-					$("#ktp").addClass("error-field-file");
+					// $("#ktp").addClass("error-field-file");
 			        alert("Format ktp hanya boleh GIF, PNG, JPG, JPEG and BMP. ");
 			    }
-			}
+			
 		}
 
 		function ValidateIjazahUpload() {
@@ -660,12 +654,7 @@
 			var fuData = document.getElementById('ijazah');
 			var FileUploadPath = fuData.value;
 
-			if (FileUploadPath == '') {
-			    alert("ijazah anda belum di upload");
-			    $("#ijazah").addClass("error-field-file");
-
-			} else {
-				$("#ijazah").removeClass("error-field-file");
+				// $("#ijazah").removeClass("error-field-file");
 			    var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
 
 			    if (Extension == "gif" || Extension == "png" || Extension == "bmp"
@@ -675,29 +664,29 @@
 
 			                var size = fuData.files[0].size;
 
-			                if(size > 5242880){
-			                    alert("Ukuran ijazah tidak boleh lebih 1 MB");
-			                    $("#ijazah").addClass("error-field-file");
-			                    return;
-			                }else{
-			                	$("#ijazah").removeClass("error-field-file");
-			                    var reader = new FileReader();
+			                // if(size > 5242880){
+			                //     alert("Ukuran ijazah tidak boleh lebih 1 MB");
+			                //     $("#ijazah").addClass("error-field-file");
+			                //     return;
+			                // }else{
+			                // 	$("#ijazah").removeClass("error-field-file");
+			                //     var reader = new FileReader();
 
-			                    reader.onload = function(e) {
-			                        $('#blah').attr('src', e.target.result);
-			                    }
+			                //     reader.onload = function(e) {
+			                //         $('#blah').attr('src', e.target.result);
+			                //     }
 
-			                    reader.readAsDataURL(fuData.files[0]);
-			                }
+			                //     reader.readAsDataURL(fuData.files[0]);
+			                // }
 			            }
 
 			    } 
 
 			else {
-					$("#ijazah").addClass("error-field-file");
+					// $("#ijazah").addClass("error-field-file");
 			        alert("Format ijazah hanya boleh GIF, PNG, JPG, JPEG and BMP. ");
 			    }
-			}
+			
 		}
 
 

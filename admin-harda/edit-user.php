@@ -232,23 +232,42 @@
                       <label>Interviewer</label>
                       <input type="text" class="form-control" name="interview" value="<?php echo $interview; ?>">
                     </div>
-
-                    <div class="form-group col-md-6 mg20">
-                      <label for="foto">Upload Foto</label>
-                        <input type="file" accept="image/*" class="form-control" id="foto" name="foto" value="<?php echo $foto; ?>">
-                    </div>
-                    <div class="form-group col-md-6 mg20">
-                      <label for="ktp">Upload KTP</label>
-                        <input type="file" accept="image/*" class="form-control" id="ktp" name="ktp" value="<?php echo $ktp; ?>">
-                    </div>
-                    <div class="form-group col-md-6 mg20">
-                      <label for="ijazah">Upload Ijazah</label>
-                        <input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah" value="<?php echo $ijazah; ?>">
-                    </div>
-
                 <div class="form-group col-md-12">
                   <input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Simpan">
                   <input type="submit" class="btn btn-warning btn-submit" name="export-pdf" id="pdf" value="Export PDF" href="javascript:void(0);" onclick="window.open('export-pdf.php?id=<?php echo $id; ?>')">
+                </div>
+              </form>
+
+              <form method="POST" action="" enctype="multipart/form-data">
+                <div class="form-group col-md-6 mg20">
+                  <label for="foto">Upload Foto</label>
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <input type="file" accept="image/*" class="form-control" id="foto" name="foto" value="<?php echo $foto; ?>">
+                </div>
+                <div class="form-group col-md-12">
+                   <input type="hidden" name="id" value="<?php echo $id; ?>">
+                  <input type="submit" class="btn btn-primary btn-submit" name="simpan_foto" id="send" value="Upload Foto">
+                </div>
+              </form>
+
+              <form method="POST" action="" enctype="multipart/form-data">
+                <div class="form-group col-md-6 mg20">
+                  <label for="ktp">Upload KTP</label>
+                     <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <input type="file" accept="image/*" class="form-control" id="ktp" name="ktp" value="<?php echo $ktp; ?>">
+                </div>
+                <div class="form-group col-md-12">
+                  <input type="submit" class="btn btn-primary btn-submit" name="simpan_ktp" id="send" value="Upload KTP">
+                </div>
+              </form>
+
+              <form method="POST" action="" enctype="multipart/form-data">
+                <div class="form-group col-md-6 mg20">
+                  <label for="ijazah">Upload Ijazah</label>
+                    <input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah" value="<?php echo $ijazah; ?>">
+                </div>
+                <div class="form-group col-md-12">
+                  <input type="submit" class="btn btn-primary btn-submit" name="simpan_ijazah" id="send" value="Upload Ijazah">
                 </div>
               </form>
             </div>
@@ -300,6 +319,70 @@
 </body>
 </html>
 <?php 
+
+if (isset($_POST['simpan_foto'])) {
+  if (isset($_POST['id'])) {
+
+    $id = $_POST['id'];
+    $type = $_FILES['foto']['type'];
+    $fileinfo=PATHINFO($_FILES["foto"]["name"]);
+    $newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
+    if (!$foto==""){  
+      unlink($foto);
+      move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
+      $location="../upload/" . $newFilename;
+    }
+
+    $query = mysqli_query($db, "UPDATE recruitment SET foto = '$location' WHERE id = '$id'");   
+
+    if ($query) {
+      // jika berhasil tampilkan pesan berhasil update data
+      header('Location: '.$_SERVER['REQUEST_URI']);
+      // echo "Berhasil";
+    } else {
+      // jika gagal tampilkan pesan kesalahan
+      // header('location: index.php?alert=1');
+      echo "Gagal";
+    }
+
+
+  }
+}
+
+if (isset($_POST['simpan_ktp'])) {
+  if (isset($_POST['id'])) {
+
+    $type1 = $_FILES['ktp']['type'];
+    $fileinfo2=PATHINFO($_FILES["ktp"]["name"]);
+    $newFilename2=$fileinfo2['filename'] ."_". time() . "." . $fileinfo2['extension'];
+    if (!$ktp==""){
+      unlink($ktp);
+      move_uploaded_file($_FILES["ktp"]["tmp_name"],"../upload/" . $newFilename2);
+      $location2="../upload/" . $newFilename2;
+    }
+
+    $query = mysqli_query($db, "UPDATE recruitment SET ktp = '$location2' WHERE id = '$id'");  
+
+  }
+}
+
+if (isset($_POST['simpan_ijazah'])) {
+  if (isset($_POST['id'])) {
+
+    $type2 = $_FILES['ijazah']['type'];
+    $fileinfo3=PATHINFO($_FILES["ijazah"]["name"]);
+    $newFilename3=$fileinfo3['filename'] ."_". time() . "." . $fileinfo3['extension'];
+    if (!$ijazah==""){
+      unlink($ijazah);
+      move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);
+      $location3="../upload/" . $newFilename3;
+    }
+
+    $query = mysqli_query($db, "UPDATE recruitment SET ijazah = '$location3' WHERE id = '$id'");  
+
+  }
+}
+
 if (isset($_POST['simpan'])) {
   if (isset($_POST['id'])) {
     $id             = $_POST['id'];
@@ -308,34 +391,11 @@ if (isset($_POST['simpan'])) {
     $posisi_rekomendasi = strtoupper($_POST['posisi_rekomendasi']);
     $interview = strtoupper($_POST['interview']);
 
-    $allowed = array('jpg','png','jpeg');
-
-    $type = $_FILES['foto']['type'];
-    $fileinfo=PATHINFO($_FILES["foto"]["name"]);
-    $newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
-    move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
-    $location="../upload/" . $newFilename;
-
-    $type1 = $_FILES['ktp']['type'];
-    $fileinfo2=PATHINFO($_FILES["ktp"]["name"]);
-    $newFilename2=$fileinfo2['filename'] ."_". time() . "." . $fileinfo2['extension'];
-    move_uploaded_file($_FILES["ktp"]["tmp_name"],"../upload/" . $newFilename2);
-    $location2="../upload/" . $newFilename2;
-
-    $type2 = $_FILES['ijazah']['type'];
-    $fileinfo3=PATHINFO($_FILES["ijazah"]["name"]);
-    $newFilename3=$fileinfo3['filename'] ."_". time() . "." . $fileinfo3['extension'];
-    move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);
-    $location3="../upload/" . $newFilename3;
-
     // perintah query untuk mengubah data pada tabel is_siswa
     $query = mysqli_query($db, "UPDATE recruitment SET komentar = '$komentar',
                             status_pelamar  = '$status_pelamar',
                             posisi_rekomendasi = '$posisi_rekomendasi',
-                            interview = '$interview',
-                            foto = '$location',
-                            ktp = '$location2',
-                            ijazah = '$location3'
+                            interview = '$interview'
                             WHERE id        = '$id'");   
 
     // cek query

@@ -49,12 +49,12 @@
                   <td>No</td>
                   <th>Posisi</th>
                   <th>Posisi Disarankan</th>
-                  <th>Refrensi</th>
+                  <th>Referensi</th>
                   <th>Interviewer</th>
                   <th>Nama Lengkap</th>
+                  <th>No Handphone</th>
                   <th>Tanggal Lahir</th>
                   <!-- <th>Agama</th> -->
-                  <!-- <th>No Handphone</th> -->
                   <!-- <th>Jenis Kelamin</th> -->
                   <th>Pendidikan Terakhir</th>
                   <th>Pengalaman Kerja</th>
@@ -89,10 +89,10 @@
                   <td><?php echo $row['refrensi']; ?></td>
                   <td><?php echo $row['interview']; ?></td>
                   <td><?php echo $row['nama_lengkap'];?></td>
+                  <th><?php echo $row['no_handphone']; ?></th>
                   <td><?php echo $row['tanggal_lahir']; ?></td>
                   <!-- <th><?php echo $row['agama']; ?></th> -->
                   <!-- <th><?php echo $row['jenis_kelamin']; ?></th> -->
-                  <!-- <th><?php echo $row['no_handphone']; ?></th> -->
                   <th><?php echo $row['pendidikan_terakhir']; ?></th>
                   <th><?php echo $row['pengalaman_kerja']; ?></th>
                   <th><?php echo $ndata; ?></th>

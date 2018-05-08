@@ -106,7 +106,7 @@
                     <span class="field-user"><?php echo $posisi; ?></span>
                 </div>
                 <div class="col-md-6 pad-label">
-                    <span class="label-user">Refrensi</span>
+                    <span class="label-user">Referensi</span>
                     <span class="field-user"><?php echo $refrensi; ?></span>
                 </div>
                 <div class="col-md-6 pad-label">

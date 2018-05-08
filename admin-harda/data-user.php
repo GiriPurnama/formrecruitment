@@ -48,15 +48,17 @@
                 <tr>
                   <td>No</td>
                   <th>Posisi</th>
+                  <th>Posisi Disarankan</th>
                   <th>Refrensi</th>
+                  <th>Interviewer</th>
                   <th>Nama Lengkap</th>
                   <th>Tanggal Lahir</th>
-                  <th>Agama</th>
-                  <th>Jenis Kelamin</th>
+                  <!-- <th>Agama</th> -->
                   <!-- <th>No Handphone</th> -->
+                  <!-- <th>Jenis Kelamin</th> -->
                   <th>Pendidikan Terakhir</th>
                   <th>Pengalaman Kerja</th>
-                  <!-- <th>Lama Pengalaman</th> -->
+                  <th>Review</th>
                   <th>Status Pelamar</th>
                   <th>Aksi</th>
                 </tr>
@@ -68,24 +70,32 @@
                     // $hitungDulu = mysqli_num_rows($pelamar);
                     while ($row = mysqli_fetch_assoc($pelamar)) {
 
-                    $status_pelamar = $row['status_pelamar'];
-                    $jadwal_interview = $row['jadwal_interview'];
+                    $posisi = $row['posisi'];
 
-                    $startdate = date($jadwal_interview);
-                    $expire = strtotime($startdate. '+1 days');                              
+                    $rekomendasi = $row['posisi_rekomendasi'];
+
+                    $rekomendasi_ro =  $rekomendasi ?: $posisi; 
+
+                    $status_pelamar = $row['status_pelamar'];
+                    
+                    $pengalaman_kerja = $row['komentar'];
+
+                    $ndata = preg_replace("/\,/", "<br/>", $pengalaman_kerja);                                
                 ?>
                 <tr>
                   <td><?php echo $no ?></td>
-                  <td><?php echo $row['posisi']; ?></td>
+                  <td><?php echo $posisi; ?></td>
+                  <td><?php echo $rekomendasi; ?></td>
                   <td><?php echo $row['refrensi']; ?></td>
+                  <td><?php echo $row['interview']; ?></td>
                   <td><?php echo $row['nama_lengkap'];?></td>
                   <td><?php echo $row['tanggal_lahir']; ?></td>
-                  <th><?php echo $row['agama']; ?></th>
-                  <th><?php echo $row['jenis_kelamin']; ?></th>
+                  <!-- <th><?php echo $row['agama']; ?></th> -->
+                  <!-- <th><?php echo $row['jenis_kelamin']; ?></th> -->
                   <!-- <th><?php echo $row['no_handphone']; ?></th> -->
                   <th><?php echo $row['pendidikan_terakhir']; ?></th>
                   <th><?php echo $row['pengalaman_kerja']; ?></th>
-                  <!-- <th><?php echo $row['lama_pengalaman']; ?></th> -->
+                  <th><?php echo $ndata; ?></th>
                   <td>
                       <?php 
                         if ($status_pelamar == "DISARANKAN") {

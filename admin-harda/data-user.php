@@ -46,7 +46,8 @@
               <table class="table table-bordered table-hover" id="table-user">
               <thead>
                 <tr>
-                  <td>No</td>
+                  <th>No</th>
+                  <th>Tanggal Post</th>
                   <th>Posisi</th>
                   <th>Posisi Disarankan</th>
                   <th>Referensi</th>
@@ -80,10 +81,15 @@
                     
                     $pengalaman_kerja = $row['komentar'];
 
+                    $oldDate = $row['post_date'];
+                    $timestamp = strtotime($oldDate);
+                    $newDate = date('j-F-Y', $timestamp); 
+
                     $ndata = preg_replace("/\,/", "<br/>", $pengalaman_kerja);                                
                 ?>
                 <tr>
                   <td><?php echo $no ?></td>
+                  <td><?php echo $newDate ?></td>
                   <td><?php echo $posisi; ?></td>
                   <td><?php echo $rekomendasi; ?></td>
                   <td><?php echo $row['refrensi']; ?></td>

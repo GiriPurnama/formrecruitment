@@ -55,6 +55,9 @@
         }
       }
 
+        $timestamp = strtotime($post_date);
+        $newDate = date('j-F-Y', $timestamp); 
+
         $ndata = preg_replace("/\,/", "<br/>", $pengalaman_kerja);  
   ?>
 
@@ -187,7 +190,7 @@
                 </div>
                 <div class="col-md-6 pad-label">
                     <span class="label-user">Tanggal Post</span>
-                    <span class="field-user"><?php echo $post_date ?></span>
+                    <span class="field-user"><?php echo $newDate; ?></span>
                 </div> 
              
             </div>

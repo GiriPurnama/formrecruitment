@@ -47,6 +47,7 @@
               <thead>
                 <tr>
                   <th>No</th>
+                  <th>Status Pelamar</th>
                   <th>Tanggal Post</th>
                   <th>Posisi</th>
                   <th>Posisi Disarankan</th>
@@ -60,7 +61,6 @@
                   <th>Pendidikan Terakhir</th>
                   <th>Pengalaman Kerja</th>
                   <th>Review</th>
-                  <th>Status Pelamar</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -89,6 +89,17 @@
                 ?>
                 <tr>
                   <td><?php echo $no ?></td>
+                  <td>
+                      <?php 
+                        if ($status_pelamar == "DISARANKAN") {
+                            echo '<span class="label label-success">Disarankan</span>';
+                        } elseif ($status_pelamar == "REJECTED"){
+                            echo '<span class="label label-danger">Rejected</span>';
+                        } else {
+                            echo '<span class="label label-info">Belum Interview</span>';
+                        }
+                      ?>
+                  </td>
                   <td><?php echo $newDate ?></td>
                   <td><?php echo $posisi; ?></td>
                   <td><?php echo $rekomendasi; ?></td>
@@ -102,17 +113,6 @@
                   <th><?php echo $row['pendidikan_terakhir']; ?></th>
                   <th><?php echo $row['pengalaman_kerja']; ?></th>
                   <th><?php echo $ndata; ?></th>
-                  <td>
-                      <?php 
-                        if ($status_pelamar == "DISARANKAN") {
-                            echo '<span class="label label-success">Disarankan</span>';
-                        } elseif ($status_pelamar == "REJECTED"){
-                            echo '<span class="label label-danger">Rejected</span>';
-                        } else {
-                            echo '<span class="label label-info">Belum Interview</span>';
-                        }
-                      ?>
-                  </td>
                   <td>
                     <?php echo "<a href='edit-user.php?id=$row[id]'><span class='action-icon'><i class='fa fa-cogs'></i></span></a>" ?>
                     <a href='server.php?id=<?php echo $row['id']; ?>' onclick="return confirm('Apakah yakin data ini akan dihapus?')"><span class='action-icon'><i class='fa fa-trash'></i></span></a>

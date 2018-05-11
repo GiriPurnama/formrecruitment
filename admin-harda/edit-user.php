@@ -223,8 +223,8 @@
                       <label>Status</label>
                       <select class="form-control" name="status_pelamar">
                         <option value="">-</option>
-                        <option value="DISARANKAN">Disarankan</option>
-                        <option value="REJECTED">Rejected</option>
+                        <option <?php if ($status_pelamar == "DISARANKAN" ) echo 'selected' ; ?> value="DISARANKAN">Disarankan</option>
+                        <option <?php if ($status_pelamar == "REJECTED" ) echo 'selected' ; ?> value="REJECTED">Rejected</option>
                       </select>
                     </div>
                     <div class="col-md-6 form-group mg20">
@@ -260,7 +260,7 @@
                     <input type="file" accept="image/*" class="form-control" id="ktp" name="ktp" >
                 </div>
                 <div class="form-group col-md-12">
-                  <input type="submit" class="btn btn-primary btn-submit" name="simpan_ktp" id="send" value="Upload Foto">
+                  <input type="submit" class="btn btn-primary btn-submit" name="simpan_ktp" id="send" value="Upload KTP">
                 </div>
               </form>
 

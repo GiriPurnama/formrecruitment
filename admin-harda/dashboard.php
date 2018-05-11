@@ -88,6 +88,118 @@
             <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
           </div>
         </div>
+          <div class="col-md-12">
+            <h1>Laporan Hari Ini</h1>
+          </div>
+          <div class="col-md-6 table-report">
+            <div class="box-body table-responsive">
+              <?php  
+                $refrensiPelamar = mysqli_query($db, "SELECT refrensi, DAYNAME(post_date) AS hari,  COUNT(*) AS jumlah FROM recruitment WHERE date(post_date)=date(now()) Group By refrensi ");  
+              ?>
+              <h3>Perolehan Referensi Kandidat </h3>
+              <table class="table table-hover">
+                <tbody>
+                  <tr>
+                    <th>Refrensi</th>
+                    <th>Total</th>
+                  </tr>
+                  <?php  
+                    while($rowpelamar = mysqli_fetch_assoc($refrensiPelamar)){ 
+                    if ($rowpelamar != null) { 
+                  ?>  
+                    <tr>
+                      <td><?php echo $rowpelamar['refrensi']; ?></td>
+                      <td><?php echo $rowpelamar['jumlah']; ?></td>
+                    </tr>
+                  <?php  } else { ?>
+                      <tr>
+                        <td colspan="2">Data Belum Tersedia</td>
+                      </tr>
+                  <?php } } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-md-6 table-report">
+            <div class="box-body table-responsive">
+              <?php  
+                $interviewPelamar = mysqli_query($db, "SELECT interview, DAYNAME(post_date) AS hari,  COUNT(*) AS jumlah FROM recruitment WHERE date(post_date)=date(now()) Group By interview ");  
+              ?>
+              <h3>Perolehan Interview Kandidat </h3>
+              <table class="table table-hover">
+                <tbody>
+                  <tr>
+                    <th>Interview</th>
+                    <th>Total</th>
+                  </tr>
+                  <?php  
+                  while($rowpelamar = mysqli_fetch_assoc($interviewPelamar)){ 
+                    if ($rowpelamar != null) { ?>    
+                  <tr>
+                    <td><?php echo $rowpelamar['interview']; ?></td>
+                    <td><?php echo $rowpelamar['jumlah']; ?></td>
+                  </tr>
+                  <?php } else { ?>
+                    <tr>
+                      <td colspan="2">Data Belum Tersedia</td>
+                    </tr>
+                  <?php }} ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+           <div class="col-md-12 table-report">
+            <div class="box-body table-responsive">
+              <?php  
+                $interviewPelamar = mysqli_query($db, "SELECT posisi, interview, DAYNAME(post_date) AS hari,  COUNT(*) AS jumlah FROM recruitment WHERE date(post_date)=date(now()) Group By interview, posisi ");  
+              ?>
+              <h3>Perolehan Posisi Kandidat</h3>
+              <table class="table table-hover">
+                <tbody>
+                  <tr>
+                    <th>Interview</th>
+                    <th>Posisi</th>
+                    <th>Total</th>
+                  </tr>
+                  <?php 
+                    while($rowpelamar = mysqli_fetch_assoc($interviewPelamar)){ 
+                    if ($rowpelamar != null) { ?>  
+                      <tr>
+                        <td><?php echo $rowpelamar['interview']; ?></td>
+                        <td><?php echo $rowpelamar['posisi']; ?></td>
+                        <td><?php echo $rowpelamar['jumlah']; ?></td>
+                      </tr>
+                    <?php } else { ?>
+                    <tr>
+                      <td colspan="3">Data Belum Tersedia</td>
+                    </tr>
+                  <?php }} ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+           <div class="col-lg-12 col-xs-6">
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <?php 
+                      $totalDay = mysqli_query($db, "SELECT DAYNAME(post_date) AS hari,  COUNT(*) AS jumlah FROM recruitment WHERE date(post_date)=date(now()) ");
+                       while($rowday = mysqli_fetch_assoc($totalDay)){      
+                  ?>
+                  <h3><?php echo $rowday['jumlah']; ?></h3>
+                  <?PHP } ?>
+
+                  <p>Total Pelamar Hari Ini</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-information-circled"></i>
+                </div>
+                <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+              </div>
+          </div>           
+         </div>
         <!-- ./col -->
       </div>
       <!-- /.row -->

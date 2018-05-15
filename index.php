@@ -488,11 +488,11 @@
 
 	        if($("input[name='refrensi']").val()===""){
 	        	$("input[name='refrensi']").addClass("error-field");
-	            $('#errorCard').append('<li class="li-refrensi">Referensi Anda Masih Kosong</li>');
+	            $('#errorCard').append('<li class="li-refrensi-2">Referensi Anda Masih Kosong</li>');
 	            status = false;
 	        }else{
 	        	$("input[name='refrensi']").removeClass('error-field');
-	       		$(".li-refrensi").remove();
+	       		$(".li-refrensi-2").remove();
 	        }
 
 

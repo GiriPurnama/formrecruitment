@@ -50,11 +50,40 @@
 		$berat_badan = mysqli_real_escape_string($db, trim(strtoupper($_POST['berat_badan'])));
 		$kuliah = strtoupper($_POST['kuliah']);
 
+		function correctImageOrientationFoto($foto) {
+		  if (function_exists('exif_read_data')) {
+		    $exif = exif_read_data($foto);
+		    if($exif && isset($exif['Orientation'])) {
+		      $orientation = $exif['Orientation'];
+		      if($orientation != 1){
+		        $img = imagecreatefromjpeg($foto);
+		        $deg = 0;
+		        switch ($orientation) {
+		          case 3:
+		            $deg = 180;
+		            break;
+		          case 6:
+		            $deg = 270;
+		            break;
+		          case 8:
+		            $deg = 90;
+		            break;
+		        }
+		        if ($deg) {
+		          $img = imagerotate($img, $deg, 0);       
+		        }
+		        imagejpeg($img, $foto, 95);
+		      } // if there is some rotation necessary
+		    } // if have the exif orientation info
+		  } // if function exists     
+		}
+
 		$type = $_FILES['foto']['type'];
 		$fileinfo=PATHINFO($_FILES["foto"]["name"]);
 		$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
 		move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
 		$location="../upload/" . $newFilename;
+		correctImageOrientationFoto($location);
 
 		$type1 = $_FILES['ktp']['type'];
 		$fileinfo2=PATHINFO($_FILES["ktp"]["name"]);

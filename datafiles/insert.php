@@ -139,7 +139,6 @@
 															tinggi_badan,
 															berat_badan,
 															token,
-															kuliah,
 															post_date)
 															VALUES('$posisi',
 																	'$refrensi',
@@ -172,7 +171,6 @@
 																	'$tinggi_badan',
 																	'$berat_badan',
 																	'$token',
-																	'$kuliah',
 																	 NOW())");
 		if ($query) {
 			// jika berhasil tampilkan pesan berhasil insert data

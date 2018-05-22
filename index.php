@@ -140,7 +140,7 @@
     						<input type="text" class="form-control" autocomplete="off" id="skill" name="kemampuan_komputer" required>
 						</div>
 						<div class="form-group col-md-6">
-						  <div class="col-md-6" style="padding-left:0px;">
+						  <!-- <div class="col-md-6" style="padding-left:0px;"> -->
 							  <label for="pendidikan_terakhir">Pendidikan Terakhir* :</label>
 							  <select class="form-control opacity0" id="pendidikan_terakhir" name="pendidikan_terakhir">
 							  	<option value="">-</option>
@@ -150,8 +150,8 @@
 							    <option value="S2">S2</option>
 							    <option value="S3">S3</option>
 							  </select>
-						  </div>
-						  <div class="col-md-6" style="padding-left:0px; padding-left:5px;">
+						  <!-- </div> -->
+						<!--   <div class="col-md-6" style="padding-left:0px; padding-left:5px;">
 						  	<label for="pendidikan_terakhir">Apakah Sedang Kuliah?*</label>
 						  	  <div class="radio-option">
 							  	  <span class="radio-2">
@@ -161,7 +161,7 @@
 								  	<input type="radio" name="kuliah" value="SUDAH LULUS"><label>SUDAH LULUS</label>
 							  	  </span>
 						  	  </div>
-						  </div>
+						  </div> -->
 						</div>
 						<div class="form-group col-md-6">
 						  <label for="bahasa" class="wd100">Bahasa Asing :</label>
@@ -179,9 +179,18 @@
 						</div>
 						<div class="form-group col-md-12">
 							<label for="pengalaman">Pengalaman Pekerjaan* :</label>
-							<label style="width:100%;">(Contoh: HRD - PT Harda Esa Raksa - 5 Tahun,)</label>
+							<div style="color:purple;">
+								<label style="width:100%;">Contoh:</label> 
+								<label style="width:100%;">1. Posisi - Perusahaan - Lama Bekerja,</label> 
+								<label style="width:100%;">2. POSISI - PERUSAHAAN - LAMA BEKERJA, dan seterusnya</label>
+							</div>
 							<span>Gunakan <b>Koma(,)</b> Sebagai pemisah info pengalaman</span>
+							<div class="noted"><b>Wajib Cantumkan Semua pengalaman kerja anda!!!</b></div>
 	    					<textarea name="pengalaman_kerja" id="pengalaman_kerja" class="form-control textareaKerja"></textarea>
+						</div>
+						<div class="form-group col-md-12">
+							<label for="kemampuan">Promosikan Diri Anda* :</label>
+    						<input type="text" class="form-control" autocomplete="off" id="promosiDiri" name="promosi_diri" required>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="foto">Upload Foto :</label>
@@ -202,10 +211,7 @@
 							<label for="jadwal_interview">Jadwal Interview* :</label>
     						<input type="text" class="form-control" id="jadwal_interview" name="jadwal_interview" required>
 						</div> -->
-						<div class="form-group col-md-6">
-							<label for="kemampuan">Promosikan Diri Anda* :</label>
-    						<input type="text" class="form-control" autocomplete="off" id="promosiDiri" name="promosi_diri" required>
-						</div>
+						
 					</form>
 					<div class="form-group col-md-12">
 						<input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Kirim">
@@ -320,7 +326,7 @@
 				data.append('telepon', $('#idTelepon').val());
 				data.append('kemampuan_komputer', $('#skill').val());
 				data.append('pendidikan_terakhir', $('#pendidikan_terakhir').val());
-				data.append('kuliah', $("input[name='kuliah']:checked").val());
+				// data.append('kuliah', $("input[name='kuliah']:checked").val());
 				data.append('bahasa_asing', $("input[name='bahasa_asing']:checked").val());
 				data.append('riwayat_penyakit', $('#riwayat').val());
 				data.append('pengalaman_kerja', $('#pengalaman_kerja').val());
@@ -551,14 +557,14 @@
 	        	$(".li-gender").remove();
 	        }
 
-	        if($("input[name='kuliah']").is(':checked')=="") { 
-	        	$('.radio-2').addClass("error-field");
-	        	$('#errorCard').append('<li class="li-kuliah">Kuliah Anda Masih Kosong</li>');
-	        	status = false;
-	        } else {
-	        	$('.radio-2').removeClass("error-field");
-	        	$(".li-kuliah").remove();
-	        }
+	        // if($("input[name='kuliah']").is(':checked')=="") { 
+	        // 	$('.radio-2').addClass("error-field");
+	        // 	$('#errorCard').append('<li class="li-kuliah">Kuliah Anda Masih Kosong</li>');
+	        // 	status = false;
+	        // } else {
+	        // 	$('.radio-2').removeClass("error-field");
+	        // 	$(".li-kuliah").remove();
+	        // }
 
 	        ValidateFotoUpload();
 	        ValidateKtpUpload();

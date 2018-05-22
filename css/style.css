@@ -204,6 +204,11 @@ input#tanggal_lahir {
 .pad-left0{
     padding-left: 0px
 }
+.noted{
+    position: relative;
+    top: 10px;
+    color: red;
+}
 @media (max-width: 991px) {
     .footer {
         margin-top: 0;

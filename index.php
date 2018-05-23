@@ -184,7 +184,7 @@
 								<label style="width:100%;">1. Posisi - Perusahaan - Lama Bekerja,</label> 
 								<label style="width:100%;">2. POSISI - PERUSAHAAN - LAMA BEKERJA, dan seterusnya</label>
 							</div>
-							<span>Gunakan <b>Koma(,)</b> Sebagai pemisah info pengalaman</span>
+							<span>Gunakan <b>Koma(,)</b> Sebagai "<b>Enter</b>" untuk lanjutan pengalaman</span>
 							<div class="noted"><b>Wajib Cantumkan Semua pengalaman kerja anda!!!</b></div>
 	    					<textarea name="pengalaman_kerja" id="pengalaman_kerja" class="form-control textareaKerja"></textarea>
 						</div>
@@ -500,8 +500,6 @@
 	        	$("input[name='refrensi']").removeClass('error-field');
 	       		$(".li-refrensi-2").remove();
 	        }
-
-
 
 	        var ddl = document.getElementById("refrensi");
  			var selectedValue = ddl.options[ddl.selectedIndex].value;

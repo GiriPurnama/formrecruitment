@@ -78,6 +78,12 @@
 		  } // if function exists     
 		}
 
+
+		$fileinfo=PATHINFO($_FILES["copy_cv"]["name"]);
+		$newFilenameCv=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
+		move_uploaded_file($_FILES["copy_cv"]["tmp_name"],"../cv/" . $newFilenameCv);
+		$cv_up="../cv/" . $newFilenameCv;
+	
 		$type = $_FILES['foto']['type'];
 		$fileinfo=PATHINFO($_FILES["foto"]["name"]);
 		$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
@@ -139,6 +145,7 @@
 															tinggi_badan,
 															berat_badan,
 															token,
+															copy_cv,
 															post_date)
 															VALUES('$posisi',
 																	'$refrensi',
@@ -171,6 +178,7 @@
 																	'$tinggi_badan',
 																	'$berat_badan',
 																	'$token',
+																	'$cv_up',
 																	 NOW())");
 		if ($query) {
 			// jika berhasil tampilkan pesan berhasil insert data

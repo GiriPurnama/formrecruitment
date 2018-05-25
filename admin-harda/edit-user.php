@@ -52,6 +52,7 @@
           $berat_badan = $data['berat_badan'];
           $tinggi_badan = $data['tinggi_badan'];
           $interview = $data['interview'];
+          $copy_cv = $data['copy_cv'];
         }
       }
 
@@ -268,6 +269,7 @@
                 <div class="form-group col-md-12">
                   <input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Simpan">
                   <input type="submit" class="btn btn-warning btn-submit" name="export-pdf" id="pdf" value="Export PDF" href="javascript:void(0);" onclick="window.open('export-pdf.php?id=<?php echo $id; ?>')">
+                  <a href="<?= $copy_cv; ?>" class="btn btn-success">Download</a>
                 </div>
               </form>
 

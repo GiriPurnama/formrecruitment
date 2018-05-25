@@ -194,19 +194,24 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label for="foto">Upload Foto :</label>
-    						<input type="file" accept="image/*" class="form-control" id="foto" name="foto" required>
+    						<input type="file" accept="image/*" class="form-control" id="foto" name="foto">
     						<!-- <span class="small-font">Ukuran Foto Maksimal <b>1 MB</b>*</span> -->
 						</div>
 						<div class="form-group col-md-6">
 							<label for="ktp">Upload KTP :</label>
-    						<input type="file" accept="image/*" class="form-control" id="ktp" name="ktp" required>
+    						<input type="file" accept="image/*" class="form-control" id="ktp" name="ktp">
 							<!-- <span class="small-font">Ukuran KTP Maksimal <b>1 MB</b>*</span> -->
 						</div>
 						<div class="form-group col-md-6">
 							<label for="ijazah">Upload Ijazah :</label>
-    						<input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah" required>
+    						<input type="file" accept="image/*" class="form-control" id="ijazah" name="ijazah">
 							<!-- <span class="small-font">Ukuran Ijazah Maksimal <b>1 MB</b>*</span> -->
 						</div>
+						<div class="form-group col-md-6">
+							<label for="cv">Upload CV :</label>
+    						<input type="file" class="form-control" id="copy_cv" name="copy_cv" >
+						</div>
+
 						<!-- <div class="form-group col-md-6">
 							<label for="jadwal_interview">Jadwal Interview* :</label>
     						<input type="text" class="form-control" id="jadwal_interview" name="jadwal_interview" required>
@@ -333,6 +338,7 @@
 				data.append('foto', $('#foto')[0].files[0]);
 				data.append('ktp', $('#ktp')[0].files[0]);
 				data.append('ijazah', $('#ijazah')[0].files[0]);
+				data.append('copy_cv', $('#copy_cv')[0].files[0]);
 				data.append('promosi_diri', $('#promosiDiri').val());
 
 				$.ajax({

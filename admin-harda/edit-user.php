@@ -56,6 +56,8 @@
         }
       }
 
+        $noImage = "/img/no-image.jpg";
+
         $timestamp = strtotime($post_date);
         $newDate = date('j-F-Y', $timestamp); 
 
@@ -97,8 +99,9 @@
                       } else if (preg_match('@\x12\x01\x03\x00\x01\x00\x00\x00(.)\x00\x00\x00@', file_get_contents($foto), $matches)) {
                           $orientation = ord($matches[1]);
                       }
+                        $imageFoto = $orientation ?: $noImage;  
                     ?>
-                    <img class="img-user-height" data-val="<?php echo $orientation ?>" id="photo" src="<?php echo $foto; ?>">
+                    <img class="img-user-height" data-val="<?php echo $imageFoto ?>" id="photo" src="<?php echo $foto; ?>">
                   </div>
               </div>
               <div class="col-md-12 mg-bottom">
@@ -216,8 +219,9 @@
                     } else if (preg_match('@\x12\x01\x03\x00\x01\x00\x00\x00(.)\x00\x00\x00@', file_get_contents($ktp), $matches)) {
                         $orientation2 = ord($matches[1]);
                     }
+                    $imageKtp = $orientation2 ?: $noImage;  
                   ?>
-                  <img class="img-user-width" id="ktp" data-val="<?php echo $orientation2; ?>" src="<?php echo $ktp; ?>">
+                  <img class="img-user-width" id="ktp" data-val="<?php echo $imageKtp; ?>" src="<?php echo $ktp; ?>">
               </div>
               <div class="col-md-6">
                   <?php 
@@ -229,8 +233,9 @@
                     } else if (preg_match('@\x12\x01\x03\x00\x01\x00\x00\x00(.)\x00\x00\x00@', file_get_contents($ijazah), $matches)) {
                         $orientation3 = ord($matches[1]);
                     }
+                    $imageIjazah = $orientation3 ?: $noImage;  
                   ?>
-                  <img class="img-user-width" id="ijazah" data-val="<?php echo $orientation3; ?>" src="<?php echo $ijazah; ?>">
+                  <img class="img-user-width" id="ijazah" data-val="<?php echo $imageIjazah; ?>" src="<?php echo $ijazah; ?>">
               </div>
             </div>
             <!-- /.box-header -->
@@ -269,7 +274,11 @@
                 <div class="form-group col-md-12">
                   <input type="submit" class="btn btn-primary btn-submit" name="simpan" id="send" value="Simpan">
                   <input type="submit" class="btn btn-warning btn-submit" name="export-pdf" id="pdf" value="Export PDF" href="javascript:void(0);" onclick="window.open('export-pdf.php?id=<?php echo $id; ?>')">
-                  <a href="<?= $copy_cv; ?>" class="btn btn-success">Download</a>
+                  <?PHP if ($copy_cv != "") 
+                        {  
+                  ?>
+                    <a href="<?= $copy_cv; ?>" class="btn btn-success">Download</a>
+                  <?PHP } ?>
                 </div>
               </form>
 

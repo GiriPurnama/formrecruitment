@@ -81,27 +81,43 @@
 
 		$fileinfo=PATHINFO($_FILES["copy_cv"]["name"]);
 		$newFilenameCv=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
-		move_uploaded_file($_FILES["copy_cv"]["tmp_name"],"../cv/" . $newFilenameCv);
-		$cv_up="../cv/" . $newFilenameCv;
-	
+		if($_FILES['copy_cv']['name']=='') {
+			$cv_up="";
+		} else {
+			move_uploaded_file($_FILES["copy_cv"]["tmp_name"],"../cv/" . $newFilenameCv);
+			$cv_up="../cv/" . $newFilenameCv;
+		}
+
 		$type = $_FILES['foto']['type'];
 		$fileinfo=PATHINFO($_FILES["foto"]["name"]);
 		$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
-		move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
-		$location="../upload/" . $newFilename;
-		correctImageOrientationFoto($location);
+		if($_FILES['foto']['name']=='') {
+			$location="";
+		} else {
+			move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
+			$location="../upload/" . $newFilename;
+			correctImageOrientationFoto($location);
+		}
 
 		$type1 = $_FILES['ktp']['type'];
 		$fileinfo2=PATHINFO($_FILES["ktp"]["name"]);
 		$newFilename2=$fileinfo2['filename'] ."_". time() . "." . $fileinfo2['extension'];
-		move_uploaded_file($_FILES["ktp"]["tmp_name"],"../upload/" . $newFilename2);
-		$location2="../upload/" . $newFilename2;
+		if($_FILES['ktp']['name']=='') {
+			$location2="";
+		} else {
+			move_uploaded_file($_FILES["ktp"]["tmp_name"],"../upload/" . $newFilename2);
+			$location2="../upload/" . $newFilename2;
+		}
 
 		$type2 = $_FILES['ijazah']['type'];
 		$fileinfo3=PATHINFO($_FILES["ijazah"]["name"]);
 		$newFilename3=$fileinfo3['filename'] ."_". time() . "." . $fileinfo3['extension'];
-		move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);
-		$location3="../upload/" . $newFilename3;
+		if($_FILES['ijazah']['name']=='') {
+			$location3="";
+		} else {
+			move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename3);
+			$location3="../upload/" . $newFilename3;
+		}
 
 		$sortName = substr($refrensi,0,2);
 		$token = $sortName."-".random_str(3);

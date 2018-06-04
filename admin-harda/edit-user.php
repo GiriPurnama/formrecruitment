@@ -56,7 +56,7 @@
         }
       }
 
-        $noImage = "/img/no-image.jpg";
+        $noImage = "../image/no-image.jpg";
 
         $timestamp = strtotime($post_date);
         $newDate = date('j-F-Y', $timestamp); 
@@ -99,9 +99,9 @@
                       } else if (preg_match('@\x12\x01\x03\x00\x01\x00\x00\x00(.)\x00\x00\x00@', file_get_contents($foto), $matches)) {
                           $orientation = ord($matches[1]);
                       }
-                        $imageFoto = $orientation ?: $noImage;  
+                        $imageFoto = $foto ?: $noImage;  
                     ?>
-                    <img class="img-user-height" data-val="<?php echo $imageFoto ?>" id="photo" src="<?php echo $foto; ?>">
+                    <img class="img-user-height" data-val="<?php echo $imageFoto ?>" id="photo" src="<?php echo $imageFoto; ?>">
                   </div>
               </div>
               <div class="col-md-12 mg-bottom">
@@ -219,9 +219,9 @@
                     } else if (preg_match('@\x12\x01\x03\x00\x01\x00\x00\x00(.)\x00\x00\x00@', file_get_contents($ktp), $matches)) {
                         $orientation2 = ord($matches[1]);
                     }
-                    $imageKtp = $orientation2 ?: $noImage;  
+                    $imageKtp = $ktp ?: $noImage;  
                   ?>
-                  <img class="img-user-width" id="ktp" data-val="<?php echo $imageKtp; ?>" src="<?php echo $ktp; ?>">
+                  <img class="img-user-width" id="ktp" data-val="<?php echo $imageKtp; ?>" src="<?php echo $imageKtp; ?>">
               </div>
               <div class="col-md-6">
                   <?php 
@@ -233,9 +233,9 @@
                     } else if (preg_match('@\x12\x01\x03\x00\x01\x00\x00\x00(.)\x00\x00\x00@', file_get_contents($ijazah), $matches)) {
                         $orientation3 = ord($matches[1]);
                     }
-                    $imageIjazah = $orientation3 ?: $noImage;  
+                    $imageIjazah = $ijazah ?: $noImage;  
                   ?>
-                  <img class="img-user-width" id="ijazah" data-val="<?php echo $imageIjazah; ?>" src="<?php echo $ijazah; ?>">
+                  <img class="img-user-width" id="ijazah" data-val="<?php echo $imageIjazah; ?>" src="<?php echo $imageIjazah; ?>">
               </div>
             </div>
             <!-- /.box-header -->

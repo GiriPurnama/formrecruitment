@@ -282,6 +282,19 @@
                 </div>
               </form>
 
+              <!-- ==================== Sementara ============================= -->
+               <form method="POST" action="" enctype="multipart/form-data">
+                <div class="form-group col-md-6 mg20">
+                  <label for="foto">Update datepicker</label>
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <input type="text"   class="form-control" name="tanggal_lahir" value="<?= $tanggal_lahir; ?>">
+                </div>
+                <div class="form-group col-md-12">
+                  <input type="submit" class="btn btn-primary btn-submit" name="simpan_tanggal" id="send" value="Update Tanggal">
+                </div>
+              </form>
+              <!-- ==================== Sementara ============================= -->
+
               <form method="POST" action="" enctype="multipart/form-data">
                 <div class="form-group col-md-6 mg20">
                   <label for="foto">Upload Foto</label>
@@ -289,7 +302,6 @@
                     <input type="file" accept="image/*" class="form-control" id="foto" name="foto">
                 </div>
                 <div class="form-group col-md-12">
-                   <input type="hidden" name="id" value="<?php echo $id; ?>">
                   <input type="submit" class="btn btn-primary btn-submit" name="simpan_foto" id="send" value="Upload Foto">
                 </div>
               </form>
@@ -507,7 +519,27 @@ if (isset($_POST['simpan_ijazah'])) {
 }
 
 
+//==================== Sementara =============================
+if (isset($_POST['simpan_tanggal'])) {
+  if (isset($_POST['id'])) {
+    $id = $_POST['id'];
+    $tanggal_lahir = $_POST['tanggal_lahir'];
 
+    $query = mysqli_query($db, "UPDATE recruitment SET tanggal_lahir = '$tanggal_lahir' WHERE id = '$id'");
+
+    if ($query) {
+        // jika berhasil tampilkan pesan berhasil update data
+        header('Location: '.$_SERVER['REQUEST_URI']);
+        // echo "Berhasil";
+      } else {
+        // jika gagal tampilkan pesan kesalahan
+        // header('location: index.php?alert=1');
+        echo "Gagal";
+      } 
+
+  }
+}
+//==================== Sementara =============================
 
 
 if (isset($_POST['simpan'])) {

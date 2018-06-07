@@ -135,9 +135,11 @@
                   </tr>
                   <?php  
                   while($rowpelamar = mysqli_fetch_assoc($interviewPelamar)){ 
-                    if ($rowpelamar != null) { ?>    
+                    if ($rowpelamar != null) { 
+                      $cek_interview = $rowpelamar['interview'] ? : "Belum Diinterview";
+                  ?>    
                   <tr>
-                    <td><?php echo $rowpelamar['interview']; ?></td>
+                    <td><?= $cek_interview; ?></td>
                     <td><?php echo $rowpelamar['jumlah']; ?></td>
                   </tr>
                   <?php } else { ?>
@@ -165,9 +167,11 @@
                   </tr>
                   <?php 
                     while($rowpelamar = mysqli_fetch_assoc($interviewPelamar)){ 
-                    if ($rowpelamar != null) { ?>  
+                    if ($rowpelamar != null) { 
+                    $cek_interview = $rowpelamar['interview'] ? : "Belum Diinterview";
+                  ?>  
                       <tr>
-                        <td><?php echo $rowpelamar['interview']; ?></td>
+                        <td><?= $cek_interview; ?></td>
                         <td><?php echo $rowpelamar['posisi']; ?></td>
                         <td><?php echo $rowpelamar['jumlah']; ?></td>
                       </tr>

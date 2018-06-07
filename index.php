@@ -69,7 +69,7 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label for="tanggal_lahir">Tanggal Lahir* :</label>
-    						<input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required readonly>
+    						<input type="text" class="form-control" autocomplete="off" id="tanggal_lahir" name="tanggal_lahir" required readonly>
 						</div>
 						<div class="form-group col-md-6">
 						  <label for="Agama">Agama* :</label>

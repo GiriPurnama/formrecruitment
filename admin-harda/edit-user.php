@@ -425,7 +425,7 @@ if (isset($_POST['simpan_foto'])) {
     $type = $_FILES['foto']['type'];
     $fileinfo=PATHINFO($_FILES["foto"]["name"]);
     $newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
-    if (!$foto==""){  
+    if (!$foto=="" || $foto==""){  
       unlink($foto);
       move_uploaded_file($_FILES["foto"]["tmp_name"],"../upload/" . $newFilename);
       $location="../upload/" . $newFilename;
@@ -456,7 +456,7 @@ if (isset($_POST['simpan_ktp'])) {
     $type = $_FILES['ktp']['type'];
     $fileinfo=PATHINFO($_FILES["ktp"]["name"]);
     $newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
-    if (!$ktp==""){  
+    if (!$ktp=="" || $ktp==""){  
       unlink($ktp);
       move_uploaded_file($_FILES["ktp"]["tmp_name"],"../upload/" . $newFilename);
       $location="../upload/" . $newFilename;
@@ -486,7 +486,7 @@ if (isset($_POST['simpan_ijazah'])) {
     $type = $_FILES['ijazah']['type'];
     $fileinfo=PATHINFO($_FILES["ijazah"]["name"]);
     $newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
-    if (!$ijazah==""){  
+    if (!$ijazah=="" || $ijazah==""){  
       unlink($ijazah);
       move_uploaded_file($_FILES["ijazah"]["tmp_name"],"../upload/" . $newFilename);
       $location="../upload/" . $newFilename;

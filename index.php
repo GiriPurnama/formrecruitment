@@ -300,7 +300,6 @@
 
 		 $("#tanggal_lahir").datepicker({ 
         	format: 'yyyy-mm-dd',
-        	startDate: '-40y',
       		endDate: '-17y',
       		autoclose: true
     	});

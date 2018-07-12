@@ -123,7 +123,7 @@
 							</div>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="alamat_sekarang">Alamat Sekarang* :</label>
+							<label for="alamat_sekarang">Alamat Tinggal Sekarang* :</label>
     						<textarea name="alamat_sekarang" id="alamat_sekarang" class="form-control textareaSekarang" style="height:34px;"></textarea>
 						</div>
 						<div class="form-group col-md-6">

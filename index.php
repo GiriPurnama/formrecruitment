@@ -127,6 +127,10 @@
     						<textarea name="alamat_sekarang" id="alamat_sekarang" class="form-control textareaSekarang" style="height:34px;"></textarea>
 						</div>
 						<div class="form-group col-md-6">
+							<label for="alamat_sekarang">Alamat KTP* :</label>
+    						<textarea name="alamat_ktp" id="alamat_ktp" class="form-control textareaSekarang" style="height:34px;"></textarea>
+						</div>
+						<div class="form-group col-md-6">
 							<label for="noHandphone">No Handphone* :</label>
     						<input type="text" class="form-control" id="idHandphone" name="no_handphone" autocomplete="off" maxlength="12" onKeyPress="return goodchars(event,'0123456789',this)" required>
 						</div>
@@ -164,6 +168,10 @@
 						  </div> -->
 						</div>
 						<div class="form-group col-md-6">
+							<label for="riwayat">Riwayat Penyakit :</label>
+    						<input type="text" class="form-control" autocomplete="off" id="riwayat" name="riwayat_penyakit">
+						</div>
+						<div class="form-group col-md-6">
 						  <label for="bahasa" class="wd100">Bahasa Asing :</label>
 						  	<div>
 							  	<label class="radio-inline"><input type="radio" name="bahasa_asing" value="INGGRIS">INGGRIS</label>
@@ -172,10 +180,6 @@
 								<label class="radio-inline"><input type="radio" name="bahasa_asing" value="JERMAN">JERMAN</label>
 								<label class="radio-inline" style="display:none;"><input type="radio" name="bahasa_asing" value="-" checked="checked"></label>
 						  	</div>
-						</div>
-						<div class="form-group col-md-6">
-							<label for="riwayat">Riwayat Penyakit :</label>
-    						<input type="text" class="form-control" autocomplete="off" id="riwayat" name="riwayat_penyakit">
 						</div>
 						<div class="form-group col-md-12">
 							<label for="pengalaman">Pengalaman Pekerjaan* :</label>
@@ -330,6 +334,7 @@
 				data.append('berat_badan', $('#berat_badan').val());
 				data.append('tinggi_badan', $('#tinggi_badan').val());
 				data.append('alamat_sekarang', $('#alamat_sekarang').val());
+				data.append('alamat_ktp', $('#alamat_ktp').val());
 				data.append('no_handphone', $('#idHandphone').val());
 				data.append('telepon', $('#idTelepon').val());
 				data.append('kemampuan_komputer', $('#skill').val());
@@ -444,6 +449,15 @@
 	            status = false;
 	        }else{
 	        	$(".textareaSekarang").removeClass('error-field');
+	        	$(".li-alamat").remove();
+	        }
+
+	        if($("#alamat_ktp").val()===""){
+	        	$("#alamat_ktp").addClass("error-field");
+	            $('#errorCard').append('<li class="li-alamat">Alamat KTP Anda Masih Kosong</li>');
+	            status = false;
+	        }else{
+	        	$("#alamat_ktp").removeClass('error-field');
 	        	$(".li-alamat").remove();
 	        }
 

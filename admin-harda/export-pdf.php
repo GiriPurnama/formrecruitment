@@ -39,6 +39,7 @@ include "../config/koneksi.php";
           $berat_badan = $data['berat_badan'];
           $posisi_rekomendasi = $data['posisi_rekomendasi'];
           $promosi_diri = $data['promosi_diri'];
+          $alamat_ktp = $data['alamat_ktp'];
         }
       }
 
@@ -155,6 +156,14 @@ $html = '
 	    		<td style="width:50%";>Alamat Sekarang</td>
 	    		<td style="width:5%";>:</td>
 	    		<td style="width:100%";>'.$alamat_sekarang.'</td>
+	    	</tr>
+	    	<tr>
+	    		<td></td>
+	    	</tr>
+	    	<tr>
+	    		<td style="width:50%";>Alamat KTP</td>
+	    		<td style="width:5%";>:</td>
+	    		<td style="width:100%";>'.$alamat_ktp.'</td>
 	    	</tr>
 	    	<tr>
 	    		<td></td>
